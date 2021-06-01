@@ -209,52 +209,31 @@
 // 	}
 // ];
 
-// var1
-
-// const myRE = /\b[A-Z][a-z]+\b/gm;
-//
-// const userSearchInput = document.getElementById('input_text');
-//
-// userSearchInput.addEventListener('input', function () { someData(); });
-//
-// function someData () {
-// 	for (let i = 0; i < data.length; i++) {
-// 		if (item => item.valueOf(data[i]) = myRE) {
-// 			console.log(`${data.country}, ${data.city}, ${data.hotel}`)
-// 		}
-// 	}
-// }
-
 // var2
 
-// const data = ['Russia', 'Spain', 'Germany'];
-//
-// const userSearch = document.getElementById('input_text')
-//
+const data = ['Russia', 'Spain', 'Germany'];
+
+const userSearch = document.getElementById('input_text').value;
+
 // const outputText = document.getElementById('output_text')
 //
 // userSearch.addEventListener('input', function () {searchData()});
 //
 // function searchData () {
-// 	for (let i = 0; i < data.length; i++) {
-//
-// 	let filterData = data.filter((i) => {
-// 			let arrValue = i.toLowerCase().split();
-// 			let userInsert = userSearch.toLowerCase().split();
-// 		})
-// 		}
-//
-// 	if (filterData) {
-// 		outputText.innerHTML = filterData;
-// 		} else {
-// 		outputText.innerHTML = 'fuck you'
-// 		}
-// 	}
 // }
 
+function findText (element) {
+
+	if (userSearch === element) {
+		return element;
+	}
+}
+
+console.log(data.filter(findText))
 
 
 // 1. массив/ обьект/ значение
 // +2. ввод пользователем
 // +3. сравнение ввода и значеения в массиве
 // 4. вывод результата / вывод конкретного заначения по результату проверки
+
