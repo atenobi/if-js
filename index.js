@@ -44,12 +44,12 @@
 //
 // const massiveTest3 = [2, 5, 8, 15, 0, 6, 20, 3]
 // for (let i = 0; i < massiveTest3.length; i++) {
-//   if (massiveTest3[i] % 2 === 0) {
+//   if (!(massiveTest3[i] % 2)) {
 //     console.log(massiveTest3[i])
 //   }
 // }
 // // 2, 8, 0, 6, 20
-//
+
 // function palindromeTest (word) {
 //   let palindromeCheck
 //   const wordReverse = word.split('').reverse().join('')
@@ -62,7 +62,19 @@
 // }
 //
 // palindromeTest(prompt('insert word', ''))
+
+// const userInsert = document.getElementById('palindrome_input');
+// userInsert.addEventListener('input', function () {isPalindrome()});
 //
+// const palindromeOutput = document.getElementById('palindrome_output');
+//
+// const isPalindrome = function () {
+// 	const insert = userInsert.value.toLowerCase();
+// 	const reverseInsert = userInsert.value.toLowerCase().split('').reverse().join('');
+//
+// 	insert === reverseInsert ? palindromeOutput.innerHTML = 'палиндром' : palindromeOutput.innerHTML = 'не палиндром';
+//  }
+
 // function minValue (a, b) {
 //   if (a > b) {
 //     return b
@@ -72,7 +84,7 @@
 // }
 //
 // console.log(minValue(15, 41))
-//
+
 // function maxValue (a, b) {
 //   if (a < b) {
 //     return b
@@ -82,61 +94,38 @@
 // }
 //
 // console.log(maxValue(9, 14))
-//
+
 // const ternMaxValue = (a, b) => a > b ? console.log(a) : console.log(b)
 //
 // ternMaxValue(14, 85)
-//
+
 // // выведите полученный массив в консоль (пример: [12, 53, '2zero', 18, 22, '1zerozero', 43, 57, '5zero', 1]).
-//
+
 // const arrTest4 = [70, 5, 34, 0, 5, 10, 47, 60, 6, 0]
 //
-// const arr4changed = arrTest4.map(function toZero (num) {
-//   if (num % 10 === 0) {
+// const changeArr4 = arrTest4.map(function toZero (num) {
+//   if (!(num % 10)) {
 //     return num / 10 + 'zero'
 //   } else if (num === 0) {
-//     return 'zero'
+//     return 'zero';
 //   } else if (num) {
-//     return num
+//     return num;
 //   }
-// })
+// });
 //
-// console.log(arr4changed)
-//
-// function map (f, a) {
-//   const result1 = []
-//   let i
-//   for (i = 0; i < a.length; i++) { result1[i] = f(a[i]) }
-//   return result1
-// }
-//
-// const f = function (x) {
-//   if (x === 0) {
-//     return 'zero'
-//   }
-//   if (x % 10 === 0) {
-//     return x / 10 + 'zero'
-//   }
-//   if (x % 10 !== 0) {
-//     return x
-//   }
-// }
-//
-// const Array1 = [0, 9, 28, 50, 1, 60, 6, 4, 80, 0]
-// const cube1 = map(f, Array1)
-// console.log(cube1)
-//
-// const Array2 = [0, 9, 28, 50, 1, 60, 6, 4, 70, 100]
+// console.log(changeArr4)
+
+// const Array2 = [0, 9, 28, 50, 1000, 60, 6, 4, 70, 100]
 //
 // for (let i = 0; i < Array2.length; i++) {
-//   if (Array2[i] % 10 === 0) {
-//     Array2[i] += ''
-//     Array2[i] = Array2[i].replaceAll('0', 'zero')
+//   if (!(Array2[i] % 10)) {
+//     Array2[i] += '';
+//     Array2[i] = Array2[i].replaceAll('0', 'zero');
 //   }
 // }
 //
 // console.log(Array2)
-//
+
 // function sum (a, b) {
 //   return a + b
 // }
@@ -153,7 +142,7 @@
 // }
 //
 // console.log(sum3(5)(2))
-//
+
 // const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 //
 // const Text1EL = document.getElementById('text1');
@@ -172,64 +161,79 @@
 // Text3EL.addEventListener('click', function () { changeColor(Text3EL); });
 // Text4EL.addEventListener('click', function () { changeColor(Text4EL); });
 
-// const date = '2020-11-26';
+// const date = '2021-09-15';
 //
 // const euroDate = date.split('-').reverse().join('.');
 // console.log(euroDate);
 
-const data = [
-	{
-		country: 'Russia',
-		city: 'Saint Petersburg',
-		hotel: 'Hotel Leopold'
-	},
-	{
-		country: 'Spain',
-		city: 'Santa Cruz de Tenerife',
-		hotel: 'Apartment Sunshine'
-	},
-	{
-		country: 'Slowakia',
-		city: 'Vysokie Tatry',
-		hotel: 'Villa Kunerad'
-	},
-	{
-		country: 'Germany',
-		city: 'Berlin',
-		hotel: 'Hostel Friendship'
-	},
-	{
-		country: 'Indonesia',
-		city: 'Bali',
-		hotel: 'Ubud Bali Resort&SPA'
-	},
-	{
-		country: 'Netherlands',
-		city: 'Rotterdam',
-		hotel: 'King Kong Hostel'
-	},
-	{
-		country: 'Marocco',
-		city: 'Ourika',
-		hotel: 'Rokoko Hotel'
-	},
-	{
-		country: 'Germany',
-		city: 'Berlin',
-		hotel: 'Hotel Rehberge Berlin Mitte'
-	}
-];
+// const data = [
+// 	{
+// 		country: 'Russia',
+// 		city: 'Saint Petersburg',
+// 		hotel: 'Hotel Leopold'
+// 	},
+// 	{
+// 		country: 'Spain',
+// 		city: 'Santa Cruz de Tenerife',
+// 		hotel: 'Apartment Sunshine'
+// 	},
+// 	{
+// 		country: 'Slowakia',
+// 		city: 'Vysokie Tatry',
+// 		hotel: 'Villa Kunerad'
+// 	},
+// 	{
+// 		country: 'Germany',
+// 		city: 'Berlin',
+// 		hotel: 'Hostel Friendship'
+// 	},
+// 	{
+// 		country: 'Indonesia',
+// 		city: 'Bali',
+// 		hotel: 'Ubud Bali Resort&SPA'
+// 	},
+// 	{
+// 		country: 'Netherlands',
+// 		city: 'Rotterdam',
+// 		hotel: 'King Kong Hostel'
+// 	},
+// 	{
+// 		country: 'Marocco',
+// 		city: 'Ourika',
+// 		hotel: 'Rokoko Hotel'
+// 	},
+// 	{
+// 		country: 'Germany',
+// 		city: 'Berlin',
+// 		hotel: 'Hotel Rehberge Berlin Mitte'
+// 	}
+// ];
 
-const myRE = /\b[A-Z][a-z]+\b/gm;
+// var2
 
-function someData () {
-	for (let i = 0; i < data.length; i++) {
-		if (data.filter(item => item.country === myRE)) {
-			console.log(data[i]);
-		}
+const data = ['Russia', 'Spain', 'Germany'];
+
+const userSearch = document.getElementById('input_text').value;
+
+// const outputText = document.getElementById('output_text')
+//
+// userSearch.addEventListener('input', function () {searchData()});
+//
+// function searchData () {
+// }
+
+function findText (element) {
+
+	if (userSearch === element) {
+		return element;
 	}
 }
 
-const userSearchInput = document.getElementById('input_text');
+console.log(data.filter(findText))
 
-userSearchInput.addEventListener('input', function () { someData(); });
+
+// 1. массив/ обьект/ значение
+// +2. ввод пользователем
+// +3. сравнение ввода и значеения в массиве
+// 4. вывод результата / вывод конкретного заначения по результату проверки
+
