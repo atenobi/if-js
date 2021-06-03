@@ -118,9 +118,13 @@
 // const Array2 = [0, 9, 28, 50, 1000, 60, 6, 4, 70, 100]
 //
 // for (let i = 0; i < Array2.length; i++) {
+
 //   if (!(Array2[i] % 10)) {
 //     Array2[i] += '';
 //     Array2[i] = Array2[i].replaceAll('0', 'zero');
+
+//   if (!(Array2[i] % 10)) {
+//     Array2[i] = (Array2[i] + '').replaceAll('0', 'zero');
 //   }
 // }
 //
@@ -160,6 +164,32 @@
 // Text2EL.addEventListener('click', function () { changeColor(Text2EL); });
 // Text3EL.addEventListener('click', function () { changeColor(Text3EL); });
 // Text4EL.addEventListener('click', function () { changeColor(Text4EL); });
+
+const colors1 = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+
+const TextEL = document.querySelectorAll('p.test_text');
+
+const changeColor = (e) => {
+	let I = 0;
+	return function () {
+		return colors1[I++];
+
+	}
+}
+for (let i = 0; i < TextEL.length; i++) {
+	TextEL[i].addEventListener('click', changeColor);
+}
+
+// const divs = document.querySelectorAll('div');
+//
+// const callBack = (e) => {
+// 	console.log(e.target.style);
+// 	e.target.style.backgroundColor = 'green';
+// };
+//
+// for (let i = 0; i < divs.length; i++) {
+// 	divs[i].addEventListener('click', callBack);
+// }
 
 // const date = '2021-09-15';
 //
@@ -208,32 +238,22 @@
 // 		hotel: 'Hotel Rehberge Berlin Mitte'
 // 	}
 // ];
-
-// var2
-
-const data = ['Russia', 'Spain', 'Germany'];
-
-const userSearch = document.getElementById('input_text').value;
-
+//
+// const userSearch = document.getElementById('input_text');
+//
 // const outputText = document.getElementById('output_text')
 //
-// userSearch.addEventListener('input', function () {searchData()});
+// userSearch.addEventListener('input', function () {searchData(data)});
 //
-// function searchData () {
+// function searchData (a) {
+// 	for (let i = 0; i < a.length; i++) {
+// 		if (a[i].country.toLowerCase() === userSearch.value.toLowerCase()
+// 			|| a[i].city.toLowerCase() === userSearch.value.toLowerCase()
+// 			|| a[i].hotel.toLowerCase() === userSearch.value.toLowerCase()
+// 		) {
+// 			outputText.innerHTML = `${a[i].country},  ${a[i].city},  ${a[i].hotel}`;
+// 		}
+// 	}
 // }
 
-function findText (element) {
-
-	if (userSearch === element) {
-		return element;
-	}
-}
-
-console.log(data.filter(findText))
-
-
-// 1. массив/ обьект/ значение
-// +2. ввод пользователем
-// +3. сравнение ввода и значеения в массиве
-// 4. вывод результата / вывод конкретного заначения по результату проверки
 

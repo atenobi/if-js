@@ -1,2 +1,6 @@
 .idea/
 node_modules/
+<<<<<<< Updated upstream
+=======
+coverage/
+>>>>>>> Stashed changes
