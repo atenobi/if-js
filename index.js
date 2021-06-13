@@ -99,46 +99,21 @@
 //
 // ternMaxValue(14, 85)
 
-// // выведите полученный массив в консоль (пример: [12, 53, '2zero', 18, 22, '1zerozero', 43, 57, '5zero', 1]).
-
-// const arrTest4 = [70, 5, 34, 0, 5, 10, 47, 60, 6, 0]
+// const ArrayZero = [0, 9, 28, 50, 1000, 60, 6, 4, 70, 100];
 //
-// const changeArr4 = arrTest4.map(function toZero (num) {
-//   if (!(num % 10)) {
-//     return num / 10 + 'zero'
-//   } else if (num === 0) {
-//     return 'zero';
-//   } else if (num) {
-//     return num;
-//   }
-// });
-//
-// console.log(changeArr4)
-
-// const Array2 = [0, 9, 28, 50, 1000, 60, 6, 4, 70, 100]
-//
-// for (let i = 0; i < Array2.length; i++) {
-
-//   if (!(Array2[i] % 10)) {
-//     Array2[i] += '';
-//     Array2[i] = Array2[i].replaceAll('0', 'zero');
-
-//   if (!(Array2[i] % 10)) {
-//     Array2[i] = (Array2[i] + '').replaceAll('0', 'zero');
-//   }
-// }
-//
-// console.log(Array2)
+// for (let i = 0; i < ArrayZero.length; i++) {
+// 	if (!(ArrayZero[i] % 10)) {
+//     ArrayZero[i] = (ArrayZero[i] + '').replaceAll('0', 'zero');
 
 // function sum (a, b) {
 //   return a + b
 // }
 //
 // console.log(sum(7, 2))
-//
-// const sum2 = (a, b) => a + b
+
+// const sum2 = (a, b) => a + b;
 // console.log(sum2(5, 4))
-//
+
 // const sum3 = (a) => {
 //   return (b) => {
 //     return a + b
@@ -147,7 +122,7 @@
 //
 // console.log(sum3(5)(2))
 
-// const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+// const colorsVar1 = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 //
 // const Text1EL = document.getElementById('text1');
 // const Text2EL = document.getElementById('text2');
@@ -157,7 +132,7 @@
 // let indexColor = 0;
 //
 // function changeColor (a) {
-//   a.style.color = colors[indexColor++ % colors.length];
+//   a.style.color = colorsVar1[indexColor++ % colorsVar1.length];
 // }
 //
 // Text1EL.addEventListener('click', function () { changeColor(Text1EL); });
@@ -165,15 +140,16 @@
 // Text3EL.addEventListener('click', function () { changeColor(Text3EL); });
 // Text4EL.addEventListener('click', function () { changeColor(Text4EL); });
 
-// const colors1 = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+
+// const colorsVar2 = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 //
 // const TextEL = document.querySelectorAll('p.test_text');
 //
-// function changeColor1 ()  {
+// function changeColor1 () {
 // 	let i = 0;
 // 	return function (e) {
-// 		e.target.style.color = colors1[i++];
-// 		if (i > (colors1.length + 1)) {
+// 		e.target.style.color = colorsVar2[i++];
+// 		if (i > colorsVar2.length) {
 // 			e.target.style.color = 'black';
 // 			i = -1;
 // 		}
@@ -186,8 +162,8 @@
 
 // const date = '2021-09-15';
 //
-// const euroDate = date.split('-').reverse().join('.');
-// console.log(euroDate);
+// const makeEuroDate = a => { return a.split('-').reverse().join('.')};
+// console.log(makeEuroDate(date));
 
 // const data = [
 // 	{
@@ -231,22 +207,214 @@
 // 		hotel: 'Hotel Rehberge Berlin Mitte'
 // 	}
 // ];
-//
+
 // const userSearch = document.getElementById('input_text');
 //
 // const outputText = document.getElementById('output_text')
 //
 // userSearch.addEventListener('input', function () {searchData(data)});
-//
-// function searchData (a) {
+
+// var 1 with 'for' circle
+
+// const searchData = (a) => {
 // 	for (let i = 0; i < a.length; i++) {
-// 		if (a[i].country.toLowerCase() === userSearch.value.toLowerCase()
-// 			|| a[i].city.toLowerCase() === userSearch.value.toLowerCase()
-// 			|| a[i].hotel.toLowerCase() === userSearch.value.toLowerCase()
-// 		) {
-// 			outputText.innerHTML = `${a[i].country},  ${a[i].city},  ${a[i].hotel}`;
+// 		let outputValue = `${a[i].country},  ${a[i].city},  ${a[i].hotel}`;
+// 		for (let key in a[i]) {
+// 			if (a[i][key].toLowerCase().includes(userSearch.value.toLowerCase())) {
+// 				outputText.innerHTML = outputValue;
+// 				 // console.log(outputValue);
+// 			}
 // 		}
 // 	}
 // }
 
+//  var 2 without 'for'
+
+// const searchData = (a) => {
+// 	 a.forEach(element => {
+// 		let searchedStr = Object.values(element).join(' ').toLowerCase();
+// 		if (searchedStr.includes(userSearch.value.toLowerCase())) {
+// 			outputText.innerHTML = Object.values(element);
+// 			// console.log(Object.values(element));
+// 			}
+// 		});
+// }
+
+// const palindrome = word => {word === word.split('').reverse().join('') ? console.log('true') : console.log('false');}
+//
+// palindrome('lol');
+
+const hotels = [
+	{
+		name: 'Hotel Leopold',
+		city: 'Saint Petersburg',
+		country: 'Russia',
+	},
+	{
+		name: 'Apartment Sunshine',
+		city: 'Santa Cruz de Tenerife',
+		country: 'Spain',
+	},
+	{
+		name: 'Villa Kunerad',
+		city: 'Vysokie Tatry',
+		country: 'Slowakia',
+	},
+	{
+		name: 'Hostel Friendship',
+		city: 'Berlin',
+		country: 'Germany',
+	},
+	{
+		name: 'Radisson Blu Hotel',
+		city: 'Kyiv',
+		country: 'Ukraine',
+	},
+	{
+		name: 'Paradise Hotel',
+		city: 'Guadalupe',
+		country: 'Mexico',
+	},
+	{
+		name: 'Hotel Grindewald',
+		city: 'Interlaken',
+		country: 'Switzerland',
+	},
+	{
+		name: 'The Andaman Resort',
+		city: 'Port Dickson',
+		country: 'Malaysia',
+	},
+	{
+		name: 'Virgin Hotel',
+		city: 'Chicago',
+		country: 'USA',
+	},
+	{
+		name: 'Grand Beach Resort',
+		city: 'Dubai',
+		country: 'United Arab Emirates',
+	},
+	{
+		name: 'Shilla Stay',
+		city: 'Seoul',
+		country: 'South Korea',
+	},
+	{
+		name: 'San Firenze Suites',
+		city: 'Florence',
+		country: 'Italy',
+	},
+	{
+		name: 'The Andaman Resort',
+		city: 'Port Dickson',
+		country: 'Malaysia',
+	},
+	{
+		name: 'Black Penny Villas',
+		city: 'BTDC, Nuca Dua',
+		country: 'Indonesia',
+	},
+	{
+		name: 'Koko Hotel',
+		city: 'Tokyo',
+		country: 'Japan',
+	},
+	{
+		name: 'Ramada Plaza',
+		city: 'Istanbul',
+		country: 'Turkey',
+	},
+	{
+		name: 'Waikiki Resort Hotel',
+		city: 'Hawaii',
+		country: 'USA',
+	},
+	{
+		name: 'Puro Hotel',
+		city: 'Krakow',
+		country: 'Poland',
+	},
+	{
+		name: 'Asma Suites',
+		city: 'Santorini',
+		country: 'Greece',
+	},
+	{
+		name: 'Cityden Apartments',
+		city: 'Amsterdam',
+		country: 'Netherlands',
+	},
+	{
+		name: 'Mandarin Oriental',
+		city: 'Miami',
+		country: 'USA',
+	},
+	{
+		name: 'Concept Terrace Hotel',
+		city: 'Rome',
+		country: 'Italy',
+	},
+	{
+		name: 'Ponta Mar Hotel',
+		city: 'Fortaleza',
+		country: 'Brazil',
+	},
+	{
+		name: 'Four Seasons Hotel',
+		city: 'Sydney',
+		country: 'Australia',
+	},
+	{
+		name: 'Le Meridien',
+		city: 'Nice',
+		country: 'France',
+	},
+	{
+		name: 'Apart Neptun',
+		city: 'Gdansk',
+		country: 'Poland',
+	},
+	{
+		name: 'Lux Isla',
+		city: 'Ibiza',
+		country: 'Spain',
+	},
+	{
+		name: 'Nox Hostel',
+		city: 'London',
+		country: 'UK',
+	},
+	{
+		name: 'Leonardo Vienna',
+		city: 'Vienna',
+		country: 'Austria',
+	},
+	{
+		name: 'Adagio Aparthotel',
+		city: 'Edinburgh',
+		country: 'UK',
+	},
+	{
+		name: 'Steigenberger Hotel',
+		city: 'Hamburg',
+		country: 'Germany',
+	},
+];
+
+// const countries = hotels.reduce((acc, item) => {        // hotels это массив => применяем .reduce
+// 	const result = { ...acc };                             // возвращаемая переменная создание обьекта через{спред оператор}
+//
+// 	if (!result[item.country]) {                           // если обьект не содержит значение item.country
+// 		result[item.country] = [];                           // делаем массив стран с 1 значением в который потом добавим города
+// 	}
+//
+// 	if (!result[item.country].includes(item.city)) {       // массив содержит строку
+// 		result[item.country].push(item.city);                // пушим все города
+// 	}
+//
+// 	return result;                                         // возвращаем массив
+// }, {});
+//
+// console.log(countries);
 
