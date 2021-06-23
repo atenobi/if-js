@@ -109,7 +109,7 @@
 //   return a + b
 // }
 //
-// console.log(sum(7, 2))
+// console.log(sum(7, 2)) // 9
 
 // const sum2 = (a, b) => a + b;
 // console.log(sum2(5, 4))
@@ -449,33 +449,33 @@ const obj3 = {
 	b: 'b',
 };
 
-const deepEqual = (ObjA, ObjB) => {
-
-	for (let key1 in ObjA) {
-		for (let key2 in ObjB) {
-			const strObjNames = x => Object.keys(x).sort().join('');
-			const strObjValues = x => Object.values(x).sort().join('');
-
-			if (typeof ObjA !== 'object'
-				&& typeof ObjB !== 'object'
-				&& Object.entries(ObjA).length !== Object.entries(ObjB).length
-				&& strObjNames(ObjA) !== strObjNames(ObjB)
-				&& strObjValues(ObjB) !== strObjValues(ObjB)) {
-					return false;
-			}
-			if (typeof ObjA[key1] !== 'object'
-				&& typeof ObjB[key2] !== 'object') {
-					if (ObjA[key1] === ObjB[key2]) {
-						return true;
-					}
-					return false;
-			}
-			deepEqual(ObjA[key1], ObjB[key2]);
-		}
-	}
-};
-
-console.log(deepEqual(obj1, obj2)); // true
-console.log(deepEqual(obj1, obj3)); // false
+// finded solution on https://overcoder.net/
+// function deepEqual(objA, objB) {
+// 	const isObject = x => x && typeof x === 'object',
+// 				isNull = x => x === null;
+//
+// 	let result = true,
+// 			unitedObjs = { ...objA, ...objB };
+//
+// 	if (isNull(objA) || isNull(objB)) {
+// 		result = false;
+// 	} else {
+// 		for (let key in unitedObjs) {
+//
+// 			if (isObject(objA[key]) || isObject(objB[key])) {
+// 				result = deepEqual(objA[key] || {}, objB[key] || {});
+// 			} else {
+// 				result = Boolean(objA[key] === objB[key])
+// 			}
+// 		}
+// 	}
+// 	return result;
+// }
+//
+// console.log(deepEqual(obj1, obj2)); // true
+// console.log(deepEqual(obj1, obj3)); // false
+// console.log(deepEqual(obj2, obj3)); // false
+// console.log(deepEqual(null, obj1)); // false
+// console.log(deepEqual({}, {})); // true
 
 
