@@ -418,3 +418,111 @@ const hotels = [
 //
 // console.log(countries);
 
+// class User {
+// 	constructor (firstName, lastName) {
+// 		this.firstName = firstName;
+// 		this.lastName = lastName;
+// 	}
+// 	get fullName() {
+// 		return `${this.firstName} ${this.lastName}`;
+// 	}
+// }
+//
+// const userTest = new User ('Max', 'Shyshko');
+//
+// console.log(userTest);
+// console.log(userTest.fullName);
+//
+// class Student extends User {
+// 	constructor (admissionYear, courseName) {
+// 		super([admissionYear, courseName])
+// 		this.admissionYear = admissionYear;
+// 		this.courseName = courseName;
+// 	}
+// 	get course(){
+// 		return `${2021 - +this.admissionYear} ${"course"}`;
+// 	}
+// }
+//
+// const studentTest = new Student( 2020,2021)
+// console.log(studentTest.course);
+
+const studentsData = [
+	{
+		firstName: 'Василий',
+		lastName: 'Петров',
+		admissionYear: 2019,
+		courseName: 'Java',
+	},
+	{
+		firstName: 'Иван',
+		lastName: 'Иванов',
+		admissionYear: 2018,
+		courseName: 'JavaScript',
+	},
+	{
+		firstName: 'Александр',
+		lastName: 'Федоров',
+		admissionYear: 2017,
+		courseName: 'Python',
+	},
+	{
+		firstName: 'Николай',
+		lastName: 'Петров',
+		admissionYear: 2019,
+		courseName: 'Android',
+	}
+];
+
+class Students {
+	constructor(arr) {
+		for (let i = 0; i < arr.length; i++) {
+			this.firstName = arr[i].firstName;
+			this.lastName = arr[i].lastName;
+			this.admissionYear = arr[i].admissionYear;
+			this.courseName = arr[i].courseName;
+			}
+		}
+		getInfo(arr) {
+			let resultArr = []
+			arr.forEach(element =>
+				resultArr.push(`${element.firstName} ${element.lastName} - ${element.courseName},` +
+					`${2021 - +element.admissionYear} ${'курс'}`));
+				return resultArr;
+			}
+
+}
+
+const students = new Students(studentsData);
+console.log(students.getInfo(studentsData));
+
+
+// const arrTest = [{name : 'Max', surname: 'Shyshko'}];
+
+// class UserTest {
+// 	constructor(arr) {
+// 		for (let i = 0; i < arr.length; i++) {
+// 			this.name = arr[i].name;
+// 			this.surname = arr[i].surname;
+// 		}
+// 	}
+// 	getInfo () {
+// 		return `${this.name} ${this.surname}`;
+// 	}
+// }
+//
+// const maxShyshko = new UserTest(arrTest)
+//
+// console.log(maxShyshko.name);
+// console.log(maxShyshko.surname);
+//
+// console.log(maxShyshko.getInfo());
+//
+
+
+
+
+
+
+
+
