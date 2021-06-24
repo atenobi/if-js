@@ -497,28 +497,6 @@ const students = new Students(studentsData);
 console.log(students.getInfo(studentsData));
 
 
-// const arrTest = [{name : 'Max', surname: 'Shyshko'}];
-
-// class UserTest {
-// 	constructor(arr) {
-// 		for (let i = 0; i < arr.length; i++) {
-// 			this.name = arr[i].name;
-// 			this.surname = arr[i].surname;
-// 		}
-// 	}
-// 	getInfo () {
-// 		return `${this.name} ${this.surname}`;
-// 	}
-// }
-//
-// const maxShyshko = new UserTest(arrTest)
-//
-// console.log(maxShyshko.name);
-// console.log(maxShyshko.surname);
-//
-// console.log(maxShyshko.getInfo());
-//
-
 
 
 
