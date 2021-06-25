@@ -474,55 +474,43 @@ const studentsData = [
 	}
 ];
 
-class Students {
-	constructor(arr) {
-		for (let i = 0; i < arr.length; i++) {
-			this.firstName = arr[i].firstName;
-			this.lastName = arr[i].lastName;
-			this.admissionYear = arr[i].admissionYear;
-			this.courseName = arr[i].courseName;
-			}
-		}
-		getInfo(arr) {
-			let resultArr = []
-			arr.forEach(element =>
-				resultArr.push(`${element.firstName} ${element.lastName} - ${element.courseName},` +
-					`${2021 - +element.admissionYear} ${'курс'}`));
-				return resultArr;
-			}
+//  var 1 - incorrect solution
 
+// class Students {
+// 	constructor(arr) {
+// 		for (let i = 0; i < arr.length; i++) {
+// 			this.firstName = arr[i].firstName;
+// 			this.lastName = arr[i].lastName;
+// 			this.admissionYear = arr[i].admissionYear;
+// 			this.courseName = arr[i].courseName;
+// 		}
+// 	}
+// 	getInfo(arr) {
+// 			let resultArr = [];
+// 			arr.sort((a, b) => b.admissionYear - a.admissionYear).forEach(element =>
+// 				resultArr.push(`${element.firstName} ${element.lastName} - ${element.courseName},` +
+// 					`${+(new Date().getFullYear()) - +element.admissionYear} ${'курс'}`));
+// 				return resultArr;
+// 			}
+// }
+//
+// const students = new Students(studentsData);
+// console.log(students.getInfo(studentsData));
+
+// var - 2 correct
+
+class Students {
+ 	constructor(arr) {
+ 		this.data = arr;
+	}
+	getInfo () {
+		let resultArr = [];
+		this.data.sort((a, b) => b.admissionYear - a.admissionYear).forEach(element =>
+			resultArr.push(`${element.firstName} ${element.lastName} - ${element.courseName},` +
+				`${+(new Date().getFullYear()) - +element.admissionYear} ${'курс'}`));
+		return resultArr;
+	}
 }
 
 const students = new Students(studentsData);
-console.log(students.getInfo(studentsData));
-
-
-// const arrTest = [{name : 'Max', surname: 'Shyshko'}];
-
-// class UserTest {
-// 	constructor(arr) {
-// 		for (let i = 0; i < arr.length; i++) {
-// 			this.name = arr[i].name;
-// 			this.surname = arr[i].surname;
-// 		}
-// 	}
-// 	getInfo () {
-// 		return `${this.name} ${this.surname}`;
-// 	}
-// }
-//
-// const maxShyshko = new UserTest(arrTest)
-//
-// console.log(maxShyshko.name);
-// console.log(maxShyshko.surname);
-//
-// console.log(maxShyshko.getInfo());
-//
-
-
-
-
-
-
-
-
+console.log(students.getInfo());
