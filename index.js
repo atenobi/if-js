@@ -418,34 +418,34 @@ const hotels = [
 //
 // console.log(countries);
 
-// class User {
-// 	constructor (firstName, lastName) {
-// 		this.firstName = firstName;
-// 		this.lastName = lastName;
-// 	}
-// 	get fullName() {
-// 		return `${this.firstName} ${this.lastName}`;
-// 	}
-// }
-//
-// const userTest = new User ('Max', 'Shyshko');
-//
-// console.log(userTest);
-// console.log(userTest.fullName);
-//
-// class Student extends User {
-// 	constructor (admissionYear, courseName) {
-// 		super([admissionYear, courseName])
-// 		this.admissionYear = admissionYear;
-// 		this.courseName = courseName;
-// 	}
-// 	get course(){
-// 		return `${2021 - +this.admissionYear} ${"course"}`;
-// 	}
-// }
-//
-// const studentTest = new Student( 2020,2021)
-// console.log(studentTest.course);
+class User {
+	constructor (parameters) {
+		this.firstName = parameters.firstName;
+		this.lastName = parameters.lastName;
+	}
+	get fullName() {
+		return `${this.firstName} ${this.lastName}`;
+	}
+}
+
+const userTest = new User ('Max', 'Shyshko');
+
+console.log(userTest);
+console.log(userTest.fullName);
+
+class Student extends User {
+	constructor (parameters) {
+		super(parameters)
+		this.admissionYear = parameters.admissionYear;
+		this.courseName = parameters.courseName;
+	}
+	get course(){
+		return `${+(new Date().getFullYear()) - +this.admissionYear} ${"курс"}`;
+	}
+}
+
+const studentTest = new Student( 2020,2021)
+console.log(studentTest.course);
 
 const studentsData = [
 	{
@@ -474,40 +474,15 @@ const studentsData = [
 	}
 ];
 
-//  var 1 - incorrect solution
-
-// class Students {
-// 	constructor(arr) {
-// 		for (let i = 0; i < arr.length; i++) {
-// 			this.firstName = arr[i].firstName;
-// 			this.lastName = arr[i].lastName;
-// 			this.admissionYear = arr[i].admissionYear;
-// 			this.courseName = arr[i].courseName;
-// 		}
-// 	}
-// 	getInfo(arr) {
-// 			let resultArr = [];
-// 			arr.sort((a, b) => b.admissionYear - a.admissionYear).forEach(element =>
-// 				resultArr.push(`${element.firstName} ${element.lastName} - ${element.courseName},` +
-// 					`${+(new Date().getFullYear()) - +element.admissionYear} ${'курс'}`));
-// 				return resultArr;
-// 			}
-// }
-//
-// const students = new Students(studentsData);
-// console.log(students.getInfo(studentsData));
-
-// var - 2 correct
-
 class Students {
- 	constructor(arr) {
- 		this.data = arr;
+ 	constructor(studentsArr) {
+ 		this.data = studentsArr;
 	}
 	getInfo () {
 		let resultArr = [];
 		this.data.sort((a, b) => b.admissionYear - a.admissionYear).forEach(element =>
-			resultArr.push(`${element.firstName} ${element.lastName} - ${element.courseName},` +
-				`${+(new Date().getFullYear()) - +element.admissionYear} ${'курс'}`));
+			resultArr.push(`${new Student(element).fullName} - ${element.courseName},` +
+				`${new Student(element).course}`));
 		return resultArr;
 	}
 }
