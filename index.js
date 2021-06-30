@@ -418,36 +418,36 @@
 //
 // console.log(countries);
 
-const obj1 = {
-	a: 'a',
-	b: {
-		a: 'a',
-		b: 'b',
-		c: {
-			a: 1,
-		},
-	},
-};
-const obj2 = {
-	b: {
-		c: {
-			a: 1,
-		},
-		b: 'b',
-		a: 'a',
-	},
-	a: 'a',
-};
-const obj3 = {
-	a: {
-		c: {
-			a: 'a',
-		},
-		b: 'b',
-		a: 'a',
-	},
-	b: 'b',
-};
+// const obj1 = {
+// 	a: 'a',
+// 	b: {
+// 		a: 'a',
+// 		b: 'b',
+// 		c: {
+// 			a: 1,
+// 		},
+// 	},
+// };
+// const obj2 = {
+// 	b: {
+// 		c: {
+// 			a: 1,
+// 		},
+// 		b: 'b',
+// 		a: 'a',
+// 	},
+// 	a: 'a',
+// };
+// const obj3 = {
+// 	a: {
+// 		c: {
+// 			a: 'a',
+// 		},
+// 		b: 'b',
+// 		a: 'a',
+// 	},
+// 	b: 'b',
+// };
 
 // finded solution on https://overcoder.net/
 // function deepEqual(objA, objB) {
@@ -477,5 +477,80 @@ const obj3 = {
 // console.log(deepEqual(obj2, obj3)); // false
 // console.log(deepEqual(null, obj1)); // false
 // console.log(deepEqual({}, {})); // true
+
+class User {
+	constructor (parameters) {
+		this.firstName = parameters.firstName;
+		this.lastName = parameters.lastName;
+	}
+	get fullName() {
+		return `${this.firstName} ${this.lastName}`;
+	}
+}
+
+const userTest = new User ('Max', 'Shyshko');
+
+console.log(userTest);
+console.log(userTest.fullName);
+
+class Student extends User {
+	constructor (parameters) {
+		super(parameters)
+		this.admissionYear = parameters.admissionYear;
+		this.courseName = parameters.courseName;
+	}
+	get course(){
+		return `${+(new Date().getFullYear()) - +this.admissionYear} ${"курс"}`;
+	}
+}
+
+const studentTest = new Student( 2020,2021)
+console.log(studentTest.course);
+
+const studentsData = [
+	{
+		firstName: 'Василий',
+		lastName: 'Петров',
+		admissionYear: 2019,
+		courseName: 'Java',
+	},
+	{
+		firstName: 'Иван',
+		lastName: 'Иванов',
+		admissionYear: 2018,
+		courseName: 'JavaScript',
+	},
+	{
+		firstName: 'Александр',
+		lastName: 'Федоров',
+		admissionYear: 2017,
+		courseName: 'Python',
+	},
+	{
+		firstName: 'Николай',
+		lastName: 'Петров',
+		admissionYear: 2019,
+		courseName: 'Android',
+	}
+];
+
+class Students {
+ 	constructor(studentsArr) {
+ 		this.data = studentsArr;
+	}
+	getInfo () {
+		let resultArr = [];
+		this.data.sort((a, b) => b.admissionYear - a.admissionYear).forEach(element =>
+			resultArr.push(`${new Student(element).fullName} - ${element.courseName},` +
+				`${new Student(element).course}`));
+		return resultArr;
+	}
+}
+
+const students = new Students(studentsData);
+console.log(students.getInfo());
+
+
+
 
 
