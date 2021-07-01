@@ -244,163 +244,163 @@
 //
 // palindrome('lol');
 
-const hotels = [
-	{
-		name: 'Hotel Leopold',
-		city: 'Saint Petersburg',
-		country: 'Russia',
-	},
-	{
-		name: 'Apartment Sunshine',
-		city: 'Santa Cruz de Tenerife',
-		country: 'Spain',
-	},
-	{
-		name: 'Villa Kunerad',
-		city: 'Vysokie Tatry',
-		country: 'Slowakia',
-	},
-	{
-		name: 'Hostel Friendship',
-		city: 'Berlin',
-		country: 'Germany',
-	},
-	{
-		name: 'Radisson Blu Hotel',
-		city: 'Kyiv',
-		country: 'Ukraine',
-	},
-	{
-		name: 'Paradise Hotel',
-		city: 'Guadalupe',
-		country: 'Mexico',
-	},
-	{
-		name: 'Hotel Grindewald',
-		city: 'Interlaken',
-		country: 'Switzerland',
-	},
-	{
-		name: 'The Andaman Resort',
-		city: 'Port Dickson',
-		country: 'Malaysia',
-	},
-	{
-		name: 'Virgin Hotel',
-		city: 'Chicago',
-		country: 'USA',
-	},
-	{
-		name: 'Grand Beach Resort',
-		city: 'Dubai',
-		country: 'United Arab Emirates',
-	},
-	{
-		name: 'Shilla Stay',
-		city: 'Seoul',
-		country: 'South Korea',
-	},
-	{
-		name: 'San Firenze Suites',
-		city: 'Florence',
-		country: 'Italy',
-	},
-	{
-		name: 'The Andaman Resort',
-		city: 'Port Dickson',
-		country: 'Malaysia',
-	},
-	{
-		name: 'Black Penny Villas',
-		city: 'BTDC, Nuca Dua',
-		country: 'Indonesia',
-	},
-	{
-		name: 'Koko Hotel',
-		city: 'Tokyo',
-		country: 'Japan',
-	},
-	{
-		name: 'Ramada Plaza',
-		city: 'Istanbul',
-		country: 'Turkey',
-	},
-	{
-		name: 'Waikiki Resort Hotel',
-		city: 'Hawaii',
-		country: 'USA',
-	},
-	{
-		name: 'Puro Hotel',
-		city: 'Krakow',
-		country: 'Poland',
-	},
-	{
-		name: 'Asma Suites',
-		city: 'Santorini',
-		country: 'Greece',
-	},
-	{
-		name: 'Cityden Apartments',
-		city: 'Amsterdam',
-		country: 'Netherlands',
-	},
-	{
-		name: 'Mandarin Oriental',
-		city: 'Miami',
-		country: 'USA',
-	},
-	{
-		name: 'Concept Terrace Hotel',
-		city: 'Rome',
-		country: 'Italy',
-	},
-	{
-		name: 'Ponta Mar Hotel',
-		city: 'Fortaleza',
-		country: 'Brazil',
-	},
-	{
-		name: 'Four Seasons Hotel',
-		city: 'Sydney',
-		country: 'Australia',
-	},
-	{
-		name: 'Le Meridien',
-		city: 'Nice',
-		country: 'France',
-	},
-	{
-		name: 'Apart Neptun',
-		city: 'Gdansk',
-		country: 'Poland',
-	},
-	{
-		name: 'Lux Isla',
-		city: 'Ibiza',
-		country: 'Spain',
-	},
-	{
-		name: 'Nox Hostel',
-		city: 'London',
-		country: 'UK',
-	},
-	{
-		name: 'Leonardo Vienna',
-		city: 'Vienna',
-		country: 'Austria',
-	},
-	{
-		name: 'Adagio Aparthotel',
-		city: 'Edinburgh',
-		country: 'UK',
-	},
-	{
-		name: 'Steigenberger Hotel',
-		city: 'Hamburg',
-		country: 'Germany',
-	},
-];
+// const hotels = [
+// 	{
+// 		name: 'Hotel Leopold',
+// 		city: 'Saint Petersburg',
+// 		country: 'Russia',
+// 	},
+// 	{
+// 		name: 'Apartment Sunshine',
+// 		city: 'Santa Cruz de Tenerife',
+// 		country: 'Spain',
+// 	},
+// 	{
+// 		name: 'Villa Kunerad',
+// 		city: 'Vysokie Tatry',
+// 		country: 'Slowakia',
+// 	},
+// 	{
+// 		name: 'Hostel Friendship',
+// 		city: 'Berlin',
+// 		country: 'Germany',
+// 	},
+// 	{
+// 		name: 'Radisson Blu Hotel',
+// 		city: 'Kyiv',
+// 		country: 'Ukraine',
+// 	},
+// 	{
+// 		name: 'Paradise Hotel',
+// 		city: 'Guadalupe',
+// 		country: 'Mexico',
+// 	},
+// 	{
+// 		name: 'Hotel Grindewald',
+// 		city: 'Interlaken',
+// 		country: 'Switzerland',
+// 	},
+// 	{
+// 		name: 'The Andaman Resort',
+// 		city: 'Port Dickson',
+// 		country: 'Malaysia',
+// 	},
+// 	{
+// 		name: 'Virgin Hotel',
+// 		city: 'Chicago',
+// 		country: 'USA',
+// 	},
+// 	{
+// 		name: 'Grand Beach Resort',
+// 		city: 'Dubai',
+// 		country: 'United Arab Emirates',
+// 	},
+// 	{
+// 		name: 'Shilla Stay',
+// 		city: 'Seoul',
+// 		country: 'South Korea',
+// 	},
+// 	{
+// 		name: 'San Firenze Suites',
+// 		city: 'Florence',
+// 		country: 'Italy',
+// 	},
+// 	{
+// 		name: 'The Andaman Resort',
+// 		city: 'Port Dickson',
+// 		country: 'Malaysia',
+// 	},
+// 	{
+// 		name: 'Black Penny Villas',
+// 		city: 'BTDC, Nuca Dua',
+// 		country: 'Indonesia',
+// 	},
+// 	{
+// 		name: 'Koko Hotel',
+// 		city: 'Tokyo',
+// 		country: 'Japan',
+// 	},
+// 	{
+// 		name: 'Ramada Plaza',
+// 		city: 'Istanbul',
+// 		country: 'Turkey',
+// 	},
+// 	{
+// 		name: 'Waikiki Resort Hotel',
+// 		city: 'Hawaii',
+// 		country: 'USA',
+// 	},
+// 	{
+// 		name: 'Puro Hotel',
+// 		city: 'Krakow',
+// 		country: 'Poland',
+// 	},
+// 	{
+// 		name: 'Asma Suites',
+// 		city: 'Santorini',
+// 		country: 'Greece',
+// 	},
+// 	{
+// 		name: 'Cityden Apartments',
+// 		city: 'Amsterdam',
+// 		country: 'Netherlands',
+// 	},
+// 	{
+// 		name: 'Mandarin Oriental',
+// 		city: 'Miami',
+// 		country: 'USA',
+// 	},
+// 	{
+// 		name: 'Concept Terrace Hotel',
+// 		city: 'Rome',
+// 		country: 'Italy',
+// 	},
+// 	{
+// 		name: 'Ponta Mar Hotel',
+// 		city: 'Fortaleza',
+// 		country: 'Brazil',
+// 	},
+// 	{
+// 		name: 'Four Seasons Hotel',
+// 		city: 'Sydney',
+// 		country: 'Australia',
+// 	},
+// 	{
+// 		name: 'Le Meridien',
+// 		city: 'Nice',
+// 		country: 'France',
+// 	},
+// 	{
+// 		name: 'Apart Neptun',
+// 		city: 'Gdansk',
+// 		country: 'Poland',
+// 	},
+// 	{
+// 		name: 'Lux Isla',
+// 		city: 'Ibiza',
+// 		country: 'Spain',
+// 	},
+// 	{
+// 		name: 'Nox Hostel',
+// 		city: 'London',
+// 		country: 'UK',
+// 	},
+// 	{
+// 		name: 'Leonardo Vienna',
+// 		city: 'Vienna',
+// 		country: 'Austria',
+// 	},
+// 	{
+// 		name: 'Adagio Aparthotel',
+// 		city: 'Edinburgh',
+// 		country: 'UK',
+// 	},
+// 	{
+// 		name: 'Steigenberger Hotel',
+// 		city: 'Hamburg',
+// 		country: 'Germany',
+// 	},
+// ];
 
 // const countries = hotels.reduce((acc, item) => {        // hotels это массив => применяем .reduce
 // 	const result = { ...acc };                             // возвращаемая переменная создание обьекта через{спред оператор}
@@ -447,70 +447,68 @@ const hotels = [
 // const studentTest = new Student( 2020,2021)
 // console.log(studentTest.course);
 
-const studentsData = [
-	{
-		firstName: 'Василий',
-		lastName: 'Петров',
-		admissionYear: 2019,
-		courseName: 'Java',
-	},
-	{
-		firstName: 'Иван',
-		lastName: 'Иванов',
-		admissionYear: 2018,
-		courseName: 'JavaScript',
-	},
-	{
-		firstName: 'Александр',
-		lastName: 'Федоров',
-		admissionYear: 2017,
-		courseName: 'Python',
-	},
-	{
-		firstName: 'Николай',
-		lastName: 'Петров',
-		admissionYear: 2019,
-		courseName: 'Android',
-	}
-];
-
-//  var 1 - incorrect solution
+// const studentsData = [
+// 	{
+// 		firstName: 'Василий',
+// 		lastName: 'Петров',
+// 		admissionYear: 2019,
+// 		courseName: 'Java',
+// 	},
+// 	{
+// 		firstName: 'Иван',
+// 		lastName: 'Иванов',
+// 		admissionYear: 2018,
+// 		courseName: 'JavaScript',
+// 	},
+// 	{
+// 		firstName: 'Александр',
+// 		lastName: 'Федоров',
+// 		admissionYear: 2017,
+// 		courseName: 'Python',
+// 	},
+// 	{
+// 		firstName: 'Николай',
+// 		lastName: 'Петров',
+// 		admissionYear: 2019,
+// 		courseName: 'Android',
+// 	}
+// ];
 
 // class Students {
-// 	constructor(arr) {
-// 		for (let i = 0; i < arr.length; i++) {
-// 			this.firstName = arr[i].firstName;
-// 			this.lastName = arr[i].lastName;
-// 			this.admissionYear = arr[i].admissionYear;
-// 			this.courseName = arr[i].courseName;
-// 		}
+//  	constructor(arr) {
+//  		this.data = arr;
 // 	}
-// 	getInfo(arr) {
-// 			let resultArr = [];
-// 			arr.sort((a, b) => b.admissionYear - a.admissionYear).forEach(element =>
-// 				resultArr.push(`${element.firstName} ${element.lastName} - ${element.courseName},` +
-// 					`${+(new Date().getFullYear()) - +element.admissionYear} ${'курс'}`));
-// 				return resultArr;
-// 			}
+// 	getInfo () {
+// 		let resultArr = [];
+// 		this.data.sort((a, b) => b.admissionYear - a.admissionYear).forEach(element =>
+// 			resultArr.push(`${element.firstName} ${element.lastName} - ${element.courseName},` +
+// 				`${+(new Date().getFullYear()) - +element.admissionYear} ${'курс'}`));
+// 		return resultArr;
+// 	}
 // }
 //
 // const students = new Students(studentsData);
-// console.log(students.getInfo(studentsData));
+// console.log(students.getInfo());
 
-// var - 2 correct
+const textElLess9 = document.querySelectorAll('p.text_l_9');
 
-class Students {
- 	constructor(arr) {
- 		this.data = arr;
-	}
-	getInfo () {
-		let resultArr = [];
-		this.data.sort((a, b) => b.admissionYear - a.admissionYear).forEach(element =>
-			resultArr.push(`${element.firstName} ${element.lastName} - ${element.courseName},` +
-				`${+(new Date().getFullYear()) - +element.admissionYear} ${'курс'}`));
-		return resultArr;
+const colors = {
+	data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
+	[Symbol.iterator] () { return this; }, // ?
+	next () {
+		let last = this.data.length;
+			if (this.current === undefined || this.current === last) {
+				this.current = 0;
+				return { done: false, }
+			}
+			if (this.current < last) {
+				return { done: false, value: this.data[this.current++], }
+			}
 	}
 }
 
-const students = new Students(studentsData);
-console.log(students.getInfo());
+const changeStyle = color => event => event.target.style.color = color.next().value;
+
+for (let i = 0; i < textElLess9.length; i++) {
+	textElLess9[i].addEventListener('click', changeStyle({...colors}));
+}
