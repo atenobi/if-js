@@ -499,7 +499,6 @@ const colors = {
 		let last = this.data.length;
 			if (this.current === undefined || this.current === last) {
 				this.current = 0;
-				return { done: false, }
 			}
 			if (this.current < last) {
 				return { done: false, value: this.data[this.current++], }
