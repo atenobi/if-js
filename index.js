@@ -109,7 +109,7 @@
 //   return a + b
 // }
 //
-// console.log(sum(7, 2))
+// console.log(sum(7, 2)) // 9
 
 // const sum2 = (a, b) => a + b;
 // console.log(sum2(5, 4))
@@ -418,77 +418,137 @@
 //
 // console.log(countries);
 
-// class User {
-// 	constructor (firstName, lastName) {
-// 		this.firstName = firstName;
-// 		this.lastName = lastName;
-// 	}
-// 	get fullName() {
-// 		return `${this.firstName} ${this.lastName}`;
-// 	}
-// }
-//
-// const userTest = new User ('Max', 'Shyshko');
-//
-// console.log(userTest);
-// console.log(userTest.fullName);
-//
-// class Student extends User {
-// 	constructor (admissionYear, courseName) {
-// 		super([admissionYear, courseName])
-// 		this.admissionYear = admissionYear;
-// 		this.courseName = courseName;
-// 	}
-// 	get course(){
-// 		return `${2021 - +this.admissionYear} ${"course"}`;
-// 	}
-// }
-//
-// const studentTest = new Student( 2020,2021)
-// console.log(studentTest.course);
+// const obj1 = {
+// 	a: 'a',
+// 	b: {
+// 		a: 'a',
+// 		b: 'b',
+// 		c: {
+// 			a: 1,
+// 		},
+// 	},
+// };
+// const obj2 = {
+// 	b: {
+// 		c: {
+// 			a: 1,
+// 		},
+// 		b: 'b',
+// 		a: 'a',
+// 	},
+// 	a: 'a',
+// };
+// const obj3 = {
+// 	a: {
+// 		c: {
+// 			a: 'a',
+// 		},
+// 		b: 'b',
+// 		a: 'a',
+// 	},
+// 	b: 'b',
+// };
 
-// const studentsData = [
-// 	{
-// 		firstName: 'Василий',
-// 		lastName: 'Петров',
-// 		admissionYear: 2019,
-// 		courseName: 'Java',
-// 	},
-// 	{
-// 		firstName: 'Иван',
-// 		lastName: 'Иванов',
-// 		admissionYear: 2018,
-// 		courseName: 'JavaScript',
-// 	},
-// 	{
-// 		firstName: 'Александр',
-// 		lastName: 'Федоров',
-// 		admissionYear: 2017,
-// 		courseName: 'Python',
-// 	},
-// 	{
-// 		firstName: 'Николай',
-// 		lastName: 'Петров',
-// 		admissionYear: 2019,
-// 		courseName: 'Android',
+// finded solution on https://overcoder.net/
+// function deepEqual(objA, objB) {
+// 	const isObject = x => x && typeof x === 'object',
+// 				isNull = x => x === null;
+//
+// 	let result = true,
+// 			unitedObjs = { ...objA, ...objB };
+//
+// 	if (isNull(objA) || isNull(objB)) {
+// 		result = false;
+// 	} else {
+// 		for (let key in unitedObjs) {
+//
+// 			if (isObject(objA[key]) || isObject(objB[key])) {
+// 				result = deepEqual(objA[key] || {}, objB[key] || {});
+// 			} else {
+// 				result = Boolean(objA[key] === objB[key])
+// 			}
+// 		}
 // 	}
-// ];
-
-// class Students {
-//  	constructor(arr) {
-//  		this.data = arr;
-// 	}
-// 	getInfo () {
-// 		let resultArr = [];
-// 		this.data.sort((a, b) => b.admissionYear - a.admissionYear).forEach(element =>
-// 			resultArr.push(`${element.firstName} ${element.lastName} - ${element.courseName},` +
-// 				`${+(new Date().getFullYear()) - +element.admissionYear} ${'курс'}`));
-// 		return resultArr;
-// 	}
+// 	return result;
 // }
 //
-// const students = new Students(studentsData);
-// console.log(students.getInfo());
+// console.log(deepEqual(obj1, obj2)); // true
+// console.log(deepEqual(obj1, obj3)); // false
+// console.log(deepEqual(obj2, obj3)); // false
+// console.log(deepEqual(null, obj1)); // false
+// console.log(deepEqual({}, {})); // true
+
+class User {
+	constructor (parameters) {
+		this.firstName = parameters.firstName;
+		this.lastName = parameters.lastName;
+	}
+	get fullName() {
+		return `${this.firstName} ${this.lastName}`;
+	}
+}
+
+const userTest = new User ('Max', 'Shyshko');
+
+console.log(userTest);
+console.log(userTest.fullName);
+
+class Student extends User {
+	constructor (parameters) {
+		super(parameters)
+		this.admissionYear = parameters.admissionYear;
+		this.courseName = parameters.courseName;
+	}
+	get course(){
+		return `${+(new Date().getFullYear()) - +this.admissionYear} ${"курс"}`;
+	}
+}
+
+const studentTest = new Student( 2020,2021)
+console.log(studentTest.course);
+
+const studentsData = [
+	{
+		firstName: 'Василий',
+		lastName: 'Петров',
+		admissionYear: 2019,
+		courseName: 'Java',
+	},
+	{
+		firstName: 'Иван',
+		lastName: 'Иванов',
+		admissionYear: 2018,
+		courseName: 'JavaScript',
+	},
+	{
+		firstName: 'Александр',
+		lastName: 'Федоров',
+		admissionYear: 2017,
+		courseName: 'Python',
+	},
+	{
+		firstName: 'Николай',
+		lastName: 'Петров',
+		admissionYear: 2019,
+		courseName: 'Android',
+	}
+];
+
+class Students {
+ 	constructor(studentsArr) {
+ 		this.data = studentsArr;
+	}
+	getInfo () {
+		let resultArr = [];
+		this.data.sort((a, b) => b.admissionYear - a.admissionYear).forEach(element =>
+			resultArr.push(`${new Student(element).fullName} - ${element.courseName},` +
+				`${new Student(element).course}`));
+		return resultArr;
+	}
+}
+
+const students = new Students(studentsData);
+console.log(students.getInfo());
 
 const textElLess9 = document.querySelectorAll('p.text_l_9');
 
@@ -512,3 +572,4 @@ const changeStyle = color => event => event.target.style.color = color.next().va
 for (let i = 0; i < textElLess9.length; i++) {
 	textElLess9[i].addEventListener('click', changeStyle({...colors}));
 }
+
