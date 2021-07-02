@@ -550,7 +550,25 @@ class Students {
 const students = new Students(studentsData);
 console.log(students.getInfo());
 
+const textElLess9 = document.querySelectorAll('p.text_l_9');
 
+const colors = {
+	data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
+	[Symbol.iterator] () { return this; }, // ?
+	next () {
+		let last = this.data.length;
+			if (this.current === undefined || this.current === last) {
+				this.current = 0;
+			}
+			if (this.current < last) {
+				return { done: false, value: this.data[this.current++], }
+			}
+	}
+}
 
+const changeStyle = color => event => event.target.style.color = color.next().value;
 
+for (let i = 0; i < textElLess9.length; i++) {
+	textElLess9[i].addEventListener('click', changeStyle({...colors}));
+}
 
