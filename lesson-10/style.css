@@ -34,10 +34,11 @@
     margin: 0 auto 120px;
     width: 1200px;
     height: 440px;
+    position: relative;
 }
 
 .content_item_container {
-    background-color: cornflowerblue;
+    /*background-color: cornflowerblue;*/
     width: 250px;
     height: 250px;
     margin: 8px;
@@ -65,4 +66,18 @@
     color: #BFBFBF;
 }
 
+.slide_button {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 120px;
+    right: 60px;
+    border-radius: 50%;
+    border-style: none;
+    box-shadow: 0 0 15px grey;
+}
+
+.pushed_button {
+    background-color: #3077C6;
+}
 
