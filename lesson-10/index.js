@@ -51,28 +51,44 @@ const data = [
 
 const ulEl = document.querySelector('ul.content_item_container');
 
-
-const dataExtract = function (arr, domEl) {
+const dataExtract = function (arrEl, domEl) {
 	let img = document.createElement('img');
 	let name = document.createElement('p');
 	let location = document.createElement('p');
-	 arr.forEach(element => {
-	 	img.className = 'content_image';
-		img.src = element.imageUrl;
 
-		name.innerHTML = `${element.name}`;
+	 	img.className = 'content_image';
+		img.src = arrEl.imageUrl;
+
+		name.innerHTML = `${arrEl.name}`;
 		name.classList.add('content_name_text');
 
-		location.innerHTML = `${element.city} ${element.country}`;
+		location.innerHTML = `${arrEl.city} ${arrEl.country}`;
 		location.classList.add('content_location_text');
-	 });
+
 		domEl.prepend(img)
 		img.after(name);
 		name.after(location);
 	return domEl;
 }
 
-dataExtract(data, ulEl);
+const outputAllEl = function () {
+	let i = 0;
+	dataExtract(data[i], ulEl);
+	const cloneEl = function () {
 
+		const cloner = (x) => x.cloneNode();
+		if (i < data.length) {
+			i++;
+			return ulEl.after(dataExtract(data[i], cloner(ulEl)));
+		} else {
+			i = 0;
+		}
+	}
+	if (i < 4) {
+		cloneEl();
+		cloneEl();
+		cloneEl();
+	}
+}
 
-
+outputAllEl();

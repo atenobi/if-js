@@ -36,6 +36,14 @@
     height: 440px;
 }
 
+.content_item_container {
+    background-color: cornflowerblue;
+    width: 250px;
+    height: 250px;
+    margin: 8px;
+}
+
+
 .content_image {
     width: 100%;
     height: auto;
