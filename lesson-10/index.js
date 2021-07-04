@@ -94,27 +94,27 @@ const data = [
 // outputAllEl(0);
 
 
-// var 2 (with unfinished changer)
-const output = document.querySelector('.container_content');
+//  // var 2 (with unfinished changer)
+const output = document.querySelector('div.container_content');
 
 function outputDataValues(arr) {
 	arr.forEach(element => {
 		let domEl = document.createElement('ul');
 		domEl.classList.add('content_item_container');
-			domEl.innerHTML = `<img src = '${element.imageUrl}' class="content_image">
+			domEl.innerHTML = `<img src = '${element.imageUrl}' class="content_image" alt="photo">
 	    <p class="content_name_text">${element.name}</p>
-	    <p class="content_location_text">${element.city}</p> <p class="content_location_text">${element.country}</p>`
+	    <p class="content_location_text">${element.city}, ${element.country}</p>`
 		output.append(domEl);
 	})
 }
 
-// changer
-// outputDataValues(data.slice(0,4))
-//
-// const sliderListener = () => {
+outputDataValues(data.slice(0, 4));
+
+// // changer button
+// function sliderListener() {
 // 	slideButtonEl.classList.add('pushed_button');
-// 	outputDataValues(data.slice(-4));
+// 	outputDataValues(data.slice(4, 8));
 // }
 //
-// const slideButtonEl = document.querySelector('.slide_button');
+// const slideButtonEl = document.querySelector('svg.slide_button');
 // slideButtonEl.addEventListener('click', sliderListener);

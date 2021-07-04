@@ -1,3 +1,5 @@
+@import url("fonts.css");
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,8 +25,11 @@
 }
 
 .title_text {
+    font-family: Roboto;
     font-size: 40px;
     line-height: 45px;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .container_content {
@@ -38,12 +43,10 @@
 }
 
 .content_item_container {
-    /*background-color: cornflowerblue;*/
     width: 250px;
     height: 250px;
     margin: 8px;
 }
-
 
 .content_image {
     width: 100%;
@@ -52,6 +55,7 @@
 
 .content_name_text {
     font-family: Roboto;
+    padding-top: 24px;
     font-style: normal;
     font-size:  24px;
     line-height: 28px;
@@ -64,20 +68,20 @@
     font-size: 24px;
     line-height: 28px;
     color: #BFBFBF;
+    padding-top: 24px;
 }
 
 .slide_button {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     position: absolute;
     top: 120px;
     right: 60px;
-    border-radius: 50%;
-    border-style: none;
-    box-shadow: 0 0 15px grey;
+    fill: #F3F3F4;
+    fill-opacity: 1;
 }
 
 .pushed_button {
-    background-color: #3077C6;
+    fill-opacity: 0.7;
 }
 
