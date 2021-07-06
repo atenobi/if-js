@@ -478,97 +478,97 @@
 // console.log(deepEqual(null, obj1)); // false
 // console.log(deepEqual({}, {})); // true
 
-class User {
-	constructor (parameters) {
-		this.firstName = parameters.firstName;
-		this.lastName = parameters.lastName;
-	}
-	get fullName() {
-		return `${this.firstName} ${this.lastName}`;
-	}
-}
+// class User {
+// 	constructor (parameters) {
+// 		this.firstName = parameters.firstName;
+// 		this.lastName = parameters.lastName;
+// 	}
+// 	get fullName() {
+// 		return `${this.firstName} ${this.lastName}`;
+// 	}
+// }
+//
+// const userTest = new User ('Max', 'Shyshko');
+//
+// console.log(userTest);
+// console.log(userTest.fullName);
+//
+// class Student extends User {
+// 	constructor (parameters) {
+// 		super(parameters)
+// 		this.admissionYear = parameters.admissionYear;
+// 		this.courseName = parameters.courseName;
+// 	}
+// 	get course(){
+// 		return `${+(new Date().getFullYear()) - +this.admissionYear} ${"курс"}`;
+// 	}
+// }
+//
+// const studentTest = new Student( 2020,2021)
+// console.log(studentTest.course);
+//
+// const studentsData = [
+// 	{
+// 		firstName: 'Василий',
+// 		lastName: 'Петров',
+// 		admissionYear: 2019,
+// 		courseName: 'Java',
+// 	},
+// 	{
+// 		firstName: 'Иван',
+// 		lastName: 'Иванов',
+// 		admissionYear: 2018,
+// 		courseName: 'JavaScript',
+// 	},
+// 	{
+// 		firstName: 'Александр',
+// 		lastName: 'Федоров',
+// 		admissionYear: 2017,
+// 		courseName: 'Python',
+// 	},
+// 	{
+// 		firstName: 'Николай',
+// 		lastName: 'Петров',
+// 		admissionYear: 2019,
+// 		courseName: 'Android',
+// 	}
+// ];
+//
+// class Students {
+//  	constructor(studentsArr) {
+//  		this.data = studentsArr;
+// 	}
+// 	getInfo () {
+// 		let resultArr = [];
+// 		this.data.sort((a, b) => b.admissionYear - a.admissionYear).forEach(element =>
+// 			resultArr.push(`${new Student(element).fullName} - ${element.courseName},` +
+// 				`${new Student(element).course}`));
+// 		return resultArr;
+// 	}
+// }
+//
+// const students = new Students(studentsData);
+// console.log(students.getInfo());
 
-const userTest = new User ('Max', 'Shyshko');
-
-console.log(userTest);
-console.log(userTest.fullName);
-
-class Student extends User {
-	constructor (parameters) {
-		super(parameters)
-		this.admissionYear = parameters.admissionYear;
-		this.courseName = parameters.courseName;
-	}
-	get course(){
-		return `${+(new Date().getFullYear()) - +this.admissionYear} ${"курс"}`;
-	}
-}
-
-const studentTest = new Student( 2020,2021)
-console.log(studentTest.course);
-
-const studentsData = [
-	{
-		firstName: 'Василий',
-		lastName: 'Петров',
-		admissionYear: 2019,
-		courseName: 'Java',
-	},
-	{
-		firstName: 'Иван',
-		lastName: 'Иванов',
-		admissionYear: 2018,
-		courseName: 'JavaScript',
-	},
-	{
-		firstName: 'Александр',
-		lastName: 'Федоров',
-		admissionYear: 2017,
-		courseName: 'Python',
-	},
-	{
-		firstName: 'Николай',
-		lastName: 'Петров',
-		admissionYear: 2019,
-		courseName: 'Android',
-	}
-];
-
-class Students {
- 	constructor(studentsArr) {
- 		this.data = studentsArr;
-	}
-	getInfo () {
-		let resultArr = [];
-		this.data.sort((a, b) => b.admissionYear - a.admissionYear).forEach(element =>
-			resultArr.push(`${new Student(element).fullName} - ${element.courseName},` +
-				`${new Student(element).course}`));
-		return resultArr;
-	}
-}
-
-const students = new Students(studentsData);
-console.log(students.getInfo());
-
-const textElLess9 = document.querySelectorAll('p.text_l_9');
-
-const colors = {
-	data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
-	[Symbol.iterator] () { return this; }, // ?
-	next () {
-		let last = this.data.length;
-			if (this.current === undefined || this.current === last) {
-				this.current = 0;
-			}
-			if (this.current < last) {
-				return { done: false, value: this.data[this.current++], }
-			}
-	}
-}
-
-const changeStyle = color => event => event.target.style.color = color.next().value;
-
-for (let i = 0; i < textElLess9.length; i++) {
-	textElLess9[i].addEventListener('click', changeStyle({...colors}));
-}
+// const textElLess9 = document.querySelectorAll('p.text_l_9');
+//
+// const colors = {
+// 	data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
+// 	[Symbol.iterator] () { return this; }, // ?
+// 	next () {
+// 		let last = this.data.length;
+// 			if (this.current === undefined || this.current === last) {
+// 				this.current = 0;
+// 			}
+// 			if (this.current < last) {
+// 				return { done: false, value: this.data[this.current++], }
+// 			}
+// 	}
+// }
+//
+// const changeStyle = color => event => event.target.style.color = color.next().value;
+//
+// for (let i = 0; i < textElLess9.length; i++) {
+// 	textElLess9[i].addEventListener('click', changeStyle({...colors}));
+// }
 
