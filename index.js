@@ -488,7 +488,7 @@
 // 		return `${this.firstName} ${this.lastName}`;
 // 	}
 // }
-//
+
 // const userTest = new User ('Max', 'Shyshko');
 //
 // console.log(userTest);
@@ -507,7 +507,7 @@
 //
 // const studentTest = new Student( 2020,2021)
 // console.log(studentTest.course);
-//
+
 // const studentsData = [
 // 	{
 // 		firstName: 'Василий',
