@@ -62,18 +62,18 @@
 // }
 //
 // palindromeTest(prompt('insert word', ''))
-
-// const userInsert = document.getElementById('palindrome_input');
-// userInsert.addEventListener('input', function () {isPalindrome()});
 //
-// const palindromeOutput = document.getElementById('palindrome_output');
-//
-// const isPalindrome = function () {
-// 	const insert = userInsert.value.toLowerCase();
-// 	const reverseInsert = userInsert.value.toLowerCase().split('').reverse().join('');
-//
-// 	insert === reverseInsert ? palindromeOutput.innerHTML = 'палиндром' : palindromeOutput.innerHTML = 'не палиндром';
-//  }
+// // const userInsert = document.getElementById('palindrome_input');
+// // userInsert.addEventListener('input', function () {isPalindrome()});
+// //
+// // const palindromeOutput = document.getElementById('palindrome_output');
+// //
+// // const isPalindrome = function () {
+// // 	const insert = userInsert.value.toLowerCase();
+// // 	const reverseInsert = userInsert.value.toLowerCase().split('').reverse().join('');
+// //
+// // 	insert === reverseInsert ? palindromeOutput.innerHTML = 'палиндром' : palindromeOutput.innerHTML = 'не палиндром';
+// //  }
 
 // function minValue (a, b) {
 //   if (a > b) {
@@ -103,7 +103,9 @@
 //
 // for (let i = 0; i < ArrayZero.length; i++) {
 // 	if (!(ArrayZero[i] % 10)) {
-//     ArrayZero[i] = (ArrayZero[i] + '').replaceAll('0', 'zero');
+// 		ArrayZero[i] = (ArrayZero[i] + '').replaceAll('0', 'zero')
+// 	}
+// }
 
 // function sum (a, b) {
 //   return a + b
@@ -139,7 +141,6 @@
 // Text2EL.addEventListener('click', function () { changeColor(Text2EL); });
 // Text3EL.addEventListener('click', function () { changeColor(Text3EL); });
 // Text4EL.addEventListener('click', function () { changeColor(Text4EL); });
-
 
 // const colorsVar2 = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 //
