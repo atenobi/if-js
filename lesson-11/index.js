@@ -66,7 +66,7 @@ const changeChildrenCounter = function (e) {
     childrenAge = document.createElement('div');
     childrenAge.classList.add('child_age_visible');
     childrenAge.innerHTML = `<label for="child_age">What is the age of the child you’re travelling with?</label>
-		<input type="number" min="0" max="17" value="0" id="child_age">`;
+        <input type="number" min="0" max="17" value="0" id="child_age">`;
     counterEl.after(childrenAge);
   }
   if (e.target.value === 0) {
@@ -75,5 +75,3 @@ const changeChildrenCounter = function (e) {
 };
 
 childrenInputEl.addEventListener('click', changeChildrenCounter);
-
-
