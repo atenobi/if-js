@@ -1,3 +1,33 @@
+// const inputInitialData = {
+//   adults: 1,
+//   children: 0,
+//   rooms: 1,
+// };
+//
+// let resultData = {};
+// console.log(resultData);
+//
+// const increaseValue = (type) => {
+//   if (type === 'Adults') {
+//     resultData = {...inputInitialData.adults + 1, ...inputInitialData }
+//   } else if (type === 'Children') {
+//     resultData = {...inputInitialData.children + 1, ...inputInitialData }
+//   } else if (type === 'Rooms') {
+//     resultData = {...inputInitialData.rooms + 1, ...inputInitialData }
+//   }
+//   console.log(resultData);
+// }
+//
+// const dicreaseValue = (type) => {
+//   if (type === 'Adults') {
+//     resultData = {...inputInitialData.adults - 1, ...inputInitialData }
+//   } else if (type === 'Children') {
+//     resultData = {...inputInitialData.children - 1, ...inputInitialData }
+//   } else if (type === 'Rooms') {
+//     resultData = {...inputInitialData.rooms - 1, ...inputInitialData }
+//   }
+// }
+//
 // // output element
 const findElFunc = (x) => document.querySelector(x);
 const adultsEl = findElFunc('p.form_adults_output');
@@ -13,36 +43,36 @@ const adultsInputEl = findElFunc('input.adults_input');
 const childrenInputEl = findElFunc('input.children_input');
 const roomsInputEl = findElFunc('input.rooms_input');
 
-const changeCounter = function (x,y) {
-	return () => x.innerHTML = `${y.value}`;
+const changeCounter = function (x, y) {
+  return () => x.innerHTML = `${y.value}`;
 };
 
-adultsInputEl.addEventListener('click', changeCounter(adultsEl,adultsInputEl));
-childrenInputEl.addEventListener('click', changeCounter(childrenEl,childrenInputEl));
-roomsInputEl.addEventListener('click', changeCounter(roomsEl,roomsInputEl));
+adultsInputEl.addEventListener('click', changeCounter(adultsEl, adultsInputEl));
+childrenInputEl.addEventListener('click', changeCounter(childrenEl, childrenInputEl));
+roomsInputEl.addEventListener('click', changeCounter(roomsEl, roomsInputEl));
 
 const counterVisible = () => {
-	if (counterEl.classList.contains('persons_count_hidden')) {
-		counterEl.classList.add('persons_count_visible');
-		personsEl.classList.add('form_persons_clicked_container');
-	}
-}
+  if (counterEl.classList.contains('persons_count_hidden')) {
+    counterEl.classList.add('persons_count_visible');
+    personsEl.classList.add('form_persons_clicked_container');
+  }
+};
 
 personsEl.addEventListener('click', counterVisible);
 
 const changeChildrenCounter = function (e) {
-	let childrenAge;
-	if (e.target.value > 0) {
-		childrenAge = document.createElement('div');
-		childrenAge.classList.add('child_age_visible');
-		childrenAge.innerHTML = `<label for="child_age">What is the age of the child you’re travelling with?</label>
+  let childrenAge;
+  if (e.target.value > 0) {
+    childrenAge = document.createElement('div');
+    childrenAge.classList.add('child_age_visible');
+    childrenAge.innerHTML = `<label for="child_age">What is the age of the child you’re travelling with?</label>
 		<input type="number" min="0" max="17" value="0" id="child_age">`;
-		counterEl.after(childrenAge);
-	}
-	if (e.target.value === 0) {
-		childrenAge.classList.add('persons_count_hidden');
-	}
-}
+    counterEl.after(childrenAge);
+  }
+  if (e.target.value === 0) {
+    childrenAge.classList.add('persons_count_hidden');
+  }
+};
 
 childrenInputEl.addEventListener('click', changeChildrenCounter);
 
