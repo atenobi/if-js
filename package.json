@@ -1,25 +1,4 @@
 {
-  "name": "if-js",
-  "version": "1.0.0",
-  "description": "\"# if-js\"",
-  "main": "index.js",
-  "directories": {
-    "test": "tests",
-    "lint": "eslint index.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/atenobi/if-js.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/atenobi/if-js/issues"
-  },
-  "homepage": "https://github.com/atenobi/if-js#readme",
   "devDependencies": {
     "eslint": "^7.30.0",
     "eslint-config-airbnb-base": "^14.2.1",
