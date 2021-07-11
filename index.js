@@ -1,6 +1,6 @@
 // let user = 'John Doe'
 // console.log(user)
-//
+
 // const student = 'Max'
 // console.log(student)
 //
@@ -49,7 +49,7 @@
 //   }
 // }
 // // 2, 8, 0, 6, 20
-
+//
 // function palindromeTest (word) {
 //   let palindromeCheck
 //   const wordReverse = word.split('').reverse().join('')
@@ -74,7 +74,7 @@
 // //
 // // 	insert === reverseInsert ? palindromeOutput.innerHTML = 'палиндром' : palindromeOutput.innerHTML = 'не палиндром';
 // //  }
-
+//
 // function minValue (a, b) {
 //   if (a > b) {
 //     return b
@@ -84,7 +84,7 @@
 // }
 //
 // console.log(minValue(15, 41))
-
+//
 // function maxValue (a, b) {
 //   if (a < b) {
 //     return b
@@ -94,11 +94,11 @@
 // }
 //
 // console.log(maxValue(9, 14))
-
+//
 // const ternMaxValue = (a, b) => a > b ? console.log(a) : console.log(b)
 //
 // ternMaxValue(14, 85)
-
+//
 // const ArrayZero = [0, 9, 28, 50, 1000, 60, 6, 4, 70, 100];
 //
 // for (let i = 0; i < ArrayZero.length; i++) {
@@ -106,16 +106,16 @@
 // 		ArrayZero[i] = (ArrayZero[i] + '').replaceAll('0', 'zero')
 // 	}
 // }
-
+//
 // function sum (a, b) {
 //   return a + b
 // }
 //
 // console.log(sum(7, 2)) // 9
-
+//
 // const sum2 = (a, b) => a + b;
 // console.log(sum2(5, 4))
-
+//
 // const sum3 = (a) => {
 //   return (b) => {
 //     return a + b
@@ -123,7 +123,7 @@
 // }
 //
 // console.log(sum3(5)(2))
-
+//
 // const colorsVar1 = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 //
 // const Text1EL = document.getElementById('text1');
@@ -141,7 +141,7 @@
 // Text2EL.addEventListener('click', function () { changeColor(Text2EL); });
 // Text3EL.addEventListener('click', function () { changeColor(Text3EL); });
 // Text4EL.addEventListener('click', function () { changeColor(Text4EL); });
-
+//
 // const colorsVar2 = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 //
 // const TextEL = document.querySelectorAll('p.test_text');
@@ -160,12 +160,12 @@
 // for (let i = 0; i < TextEL.length; i++) {
 // 	TextEL[i].addEventListener('click', changeColor1());
 // }
-
+//
 // const date = '2021-09-15';
 //
 // const makeEuroDate = a => { return a.split('-').reverse().join('.')};
 // console.log(makeEuroDate(date));
-
+//
 // const data = [
 // 	{
 // 		country: 'Russia',
@@ -208,15 +208,15 @@
 // 		hotel: 'Hotel Rehberge Berlin Mitte'
 // 	}
 // ];
-
+//
 // const userSearch = document.getElementById('input_text');
 //
 // const outputText = document.getElementById('output_text')
 //
 // userSearch.addEventListener('input', function () {searchData(data)});
-
+//
 // var 1 with 'for' circle
-
+//
 // const searchData = (a) => {
 // 	for (let i = 0; i < a.length; i++) {
 // 		let outputValue = `${a[i].country},  ${a[i].city},  ${a[i].hotel}`;
@@ -228,9 +228,9 @@
 // 		}
 // 	}
 // }
-
+//
 //  var 2 without 'for'
-
+//
 // const searchData = (a) => {
 // 	 a.forEach(element => {
 // 		let searchedStr = Object.values(element).join(' ').toLowerCase();
@@ -240,11 +240,11 @@
 // 			}
 // 		});
 // }
-
+//
 // const palindrome = word => {word === word.split('').reverse().join('') ? console.log('true') : console.log('false');}
 //
 // palindrome('lol');
-
+//
 // const hotels = [
 // 	{
 // 		name: 'Hotel Leopold',
@@ -402,7 +402,7 @@
 // 		country: 'Germany',
 // 	},
 // ];
-
+//
 // const countries = hotels.reduce((acc, item) => {        // hotels это массив => применяем .reduce
 // 	const result = { ...acc };                             // возвращаемая переменная создание обьекта через{спред оператор}
 //
@@ -418,7 +418,7 @@
 // }, {});
 //
 // console.log(countries);
-
+//
 // const obj1 = {
 // 	a: 'a',
 // 	b: {
@@ -449,7 +449,7 @@
 // 	},
 // 	b: 'b',
 // };
-
+//
 // finded solution on https://overcoder.net/
 // function deepEqual(objA, objB) {
 // 	const isObject = x => x && typeof x === 'object',
@@ -478,7 +478,7 @@
 // console.log(deepEqual(obj2, obj3)); // false
 // console.log(deepEqual(null, obj1)); // false
 // console.log(deepEqual({}, {})); // true
-
+//
 // class User {
 // 	constructor (parameters) {
 // 		this.firstName = parameters.firstName;
@@ -488,7 +488,7 @@
 // 		return `${this.firstName} ${this.lastName}`;
 // 	}
 // }
-
+//
 // const userTest = new User ('Max', 'Shyshko');
 //
 // console.log(userTest);
@@ -507,7 +507,7 @@
 //
 // const studentTest = new Student( 2020,2021)
 // console.log(studentTest.course);
-
+//
 // const studentsData = [
 // 	{
 // 		firstName: 'Василий',
@@ -550,7 +550,7 @@
 //
 // const students = new Students(studentsData);
 // console.log(students.getInfo());
-
+//
 // const textElLess9 = document.querySelectorAll('p.text_l_9');
 //
 // const colors = {
@@ -572,4 +572,4 @@
 // for (let i = 0; i < textElLess9.length; i++) {
 // 	textElLess9[i].addEventListener('click', changeStyle({...colors}));
 // }
-
+//
