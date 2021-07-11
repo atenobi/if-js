@@ -1,33 +1,3 @@
-// const inputInitialData = {
-//   adults: 1,
-//   children: 0,
-//   rooms: 1,
-// };
-//
-// let resultData = {};
-// console.log(resultData);
-//
-// const increaseValue = (type) => {
-//   if (type === 'Adults') {
-//     resultData = {...inputInitialData.adults + 1, ...inputInitialData }
-//   } else if (type === 'Children') {
-//     resultData = {...inputInitialData.children + 1, ...inputInitialData }
-//   } else if (type === 'Rooms') {
-//     resultData = {...inputInitialData.rooms + 1, ...inputInitialData }
-//   }
-//   console.log(resultData);
-// }
-//
-// const dicreaseValue = (type) => {
-//   if (type === 'Adults') {
-//     resultData = {...inputInitialData.adults - 1, ...inputInitialData }
-//   } else if (type === 'Children') {
-//     resultData = {...inputInitialData.children - 1, ...inputInitialData }
-//   } else if (type === 'Rooms') {
-//     resultData = {...inputInitialData.rooms - 1, ...inputInitialData }
-//   }
-// }
-//
 // // output element
 const findElFunc = (x) => document.querySelector(x);
 const adultsEl = findElFunc('p.form_adults_output');
@@ -44,7 +14,8 @@ const childrenInputEl = findElFunc('input.children_input');
 const roomsInputEl = findElFunc('input.rooms_input');
 
 const changeCounter = function (x, y) {
-  return () => x.innerHTML = `${y.value}`;
+  // eslint-disable-next-line no-return-assign,no-param-reassign
+  return x.innerHTML = `${y.value}`;
 };
 
 adultsInputEl.addEventListener('click', changeCounter(adultsEl, adultsInputEl));

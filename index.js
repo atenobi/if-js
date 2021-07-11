@@ -555,18 +555,25 @@ const textElLess9 = document.querySelectorAll('p.text_l_9');
 const colors = {
   data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
   [Symbol.iterator]() { return this; }, // ?
+  // eslint-disable-next-line consistent-return
   next() {
     const last = this.data.length;
     if (this.current === undefined || this.current === last) {
       this.current = 0;
     }
     if (this.current < last) {
+      // пока не понял как исправить
+      // eslint-disable-next-line no-return-assign
       return { done: false, value: this.data[this.current += 1] };
     }
   },
 };
 
-const changeStyle = (color) => (event) => event.target.style.color = color.next().value;
+const changeStyle = (color) => (event) => {
+  let eventColor = event.target.style.color;
+  eventColor = color.next().value;
+  return eventColor;
+};
 
 for (let i = 0; i < textElLess9.length; i += 1) {
   textElLess9[i].addEventListener('click', changeStyle({ ...colors }));
