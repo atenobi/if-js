@@ -407,4 +407,19 @@ html {
     padding-left: 20px;
 }
 
+.test_div {
+    margin: 20px auto;
+    padding: 10px;
+    height: 64px;
+}
 
+.test_span, .output_test_text {
+    padding: 40px;
+    margin: 40px;
+    font-size: 25px;
+}
+
+.minus, .plus {
+    height: 35px;
+    width: 35px;
+}
