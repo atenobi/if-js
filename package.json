@@ -1,11 +1,10 @@
 {
-  "name": "if-js",
+  "name": "if",
   "version": "1.0.0",
   "description": "\"# if-js\"",
   "main": "index.js",
   "directories": {
-    "test": "tests",
-    "lint": "eslint index.js"
+    "test": "tests"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
