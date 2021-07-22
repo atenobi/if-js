@@ -116,28 +116,36 @@
                     <input class="top_section__form_input--calendar_2 form_input form_input--sm form_input text_md_480" id="calendar2" type="date">
 
                 </div>
-                <div class="form_persons_container top_section__form--input_container">
-<!--========================================-->
-                    <p class="form__output"><p class="form__output_value form_adults_output">0</p>Adults —</p>
-                    <p class="form__output"><p class="form__output_value form_children_output">0</p>Children —</p>
-                    <p class="form__output"><p class="form__output_value form_rooms_output">0</p>Rooms</p>
 
-                    <div class="persons_count_hidden">
-                        <div class="counter_item">
-                            <label for="adults_count">Adults</label>
-                            <input class="adults_input" type="number" step="1" min="0" max="30" value="0" id="adults_count">
+                <div class="top_section__form--input_container">
+                    <div class="form_persons_container">
+                        <span class="form_persons_text">
+                            <span class="form_adults">0</span> Adults -
+                            <span class="form_children">0</span> Children -
+                            <span class="form_rooms">0</span> Rooms
+                        </span>
+                    </div>
+                    <div class="persons_count hidden_element">
+                        <div class="count_item">
+                            <p class="counter_item_text">Adults</p>
+                                <button class="minus">-</button>
+                                    <span class="count_adults">0</span>
+                                <button class="plus">+</button>
                         </div>
-                        <div class="counter_item">
-                            <label for="children_count">Children</label>
-                            <input class="children_input" type="number" step="1" min="0" max="10" value="0" id="children_count">
+                        <div class="count_item">
+                            <p class="counter_item_text">Children</p>
+                                <button class="minus">-</button>
+                                    <span class="count_children">0</span>
+                                <button class="plus">+</button>
                         </div>
-                        <div class="counter_item">
-                            <label for="rooms_count">Rooms</label>
-                            <input class="rooms_input" type="number" step="1" min="0" max="30" value="0" id="rooms_count">
+                        <div class="count_item">
+                            <p class="counter_item_text">Rooms</p>
+                                <button class="minus">-</button>
+                                    <span class="count_rooms">0</span>
+                                <button class="plus">+</button>
                         </div>
                     </div>
                 </div>
-
                 <div>
                     <input class="top_section__form_input--button form_input form_input--sm text_lg text_lg_480" type="button" value="Search">
                 </div>
@@ -151,12 +159,6 @@
         </div>
     </div>
 </section>
-<div class="test_div">
-    <p class="output_test_text"></p>
-    <button class="minus">-</button>
-        <span class="test_span">0</span>
-    <button class="plus">+</button>
-</div>
 <script src="index.js"></script>
 </body>
 </html>

@@ -315,10 +315,9 @@ html {
 }
 /*===========*/
 .form_persons_container {
-    width: 300px;
+    width: 100%;
     font-size: 18px;
     line-height: 22px;
-    text-align: center;
     padding-top: 20px;
     font-style: normal;
     font-weight: 400;
@@ -326,6 +325,11 @@ html {
     position: relative;
     display: flex;
     justify-content: center;
+    text-align: center;
+}
+
+.form_persons_text {
+    width: 100%;
 }
 
 .form_persons_clicked_container {
@@ -333,21 +337,15 @@ html {
     border: 3px solid var(--secondary);
 }
 
-.form__output_value {
-    margin: 0 5px 0 5px;
+.hidden_element {
+  visibility: hidden;
 }
 
-.form__output {
-    font-size: 18px;
-    line-height: 22px;
-}
-
-.persons_count_hidden {
-  display: none;
-}
-
-.persons_count_visible {
+.visible_element {
     visibility: visible;
+}
+
+.persons_count {
     width: 260px;
     height: 160px;
     background-color: var(--general-white);
@@ -361,8 +359,7 @@ html {
     justify-content: space-around;
 }
 
-.child_age_visible {
-    visibility: visible;
+.child_age {
     width: 260px;
     height: 78px;
     background-color: var(--general-white);
@@ -376,11 +373,26 @@ html {
     justify-content: space-around;
 }
 
-.counter_item {
+.count_item {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.minus, .plus {
+    height: 30px;
+    width: 30px;
+    border: 1px solid var(--primary);
+}
+
+.count_adults,
+.count_children,
+.count_rooms,
+.counter_item_text {
+    font-size: 16px;
+    line-height: 19px;
+    padding-top: 7px;
 }
 
 .top_section__form_input--button {
@@ -407,19 +419,3 @@ html {
     padding-left: 20px;
 }
 
-.test_div {
-    margin: 20px auto;
-    padding: 10px;
-    height: 64px;
-}
-
-.test_span, .output_test_text {
-    padding: 40px;
-    margin: 40px;
-    font-size: 25px;
-}
-
-.minus, .plus {
-    height: 35px;
-    width: 35px;
-}
