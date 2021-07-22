@@ -316,16 +316,16 @@ html {
 /*===========*/
 .form_persons_container {
     width: 100%;
+    height: 100%;
     font-size: 18px;
     line-height: 22px;
-    padding-top: 20px;
     font-style: normal;
     font-weight: 400;
     font-family: Roboto;
     position: relative;
     display: flex;
-    justify-content: center;
     text-align: center;
+    align-items: center;
 }
 
 .form_persons_text {
@@ -338,7 +338,7 @@ html {
 }
 
 .hidden_element {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 .visible_element {
@@ -380,10 +380,18 @@ html {
     justify-content: space-around;
 }
 
+.child_count_button_container {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
 .minus, .plus {
     height: 30px;
     width: 30px;
     border: 1px solid var(--primary);
+    color: var(--primary);
 }
 
 .count_adults,
@@ -393,6 +401,27 @@ html {
     font-size: 16px;
     line-height: 19px;
     padding-top: 7px;
+}
+
+.child_age {
+    display: flex;
+    align-items: start;
+}
+
+.child_age_text {
+    font-size: 12px;
+    line-height: 14px;
+    font-style: normal;
+    margin: 10px 20px;
+}
+
+.child_age_option_item {
+    width: 100px;
+    height: 30px;
+    margin: 5px 5px 10px 10px;
+    box-sizing: border-box;
+    outline: var(--primary);
+    border: 1px solid var(--primary);
 }
 
 .top_section__form_input--button {
