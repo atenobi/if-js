@@ -59,7 +59,7 @@ const increaseValue = (event) => {
       countAdultsEl.textContent = personsValues.adults;
     }
   } else if (event.target.previousElementSibling.classList.contains('count_children')) {
-    if (personsValues.children < 20) {
+    if (personsValues.children < 10) {
       personsValues.children += 1;
       formChildrenEl.textContent = personsValues.children;
       countChildrenEl.textContent = personsValues.children;
@@ -76,43 +76,54 @@ const increaseValue = (event) => {
 // event listeners
 minesButtonEl.forEach((el) => el.addEventListener('click', decreaseValue));
 plusButtonEl.forEach((el) => el.addEventListener('click', increaseValue));
+formPersonsTextEl.addEventListener('click', () => {
+  formPersonsTextEl.classList.toggle('form_persons_clicked_container');
+});
 formPersonsTextEl.addEventListener('click', () => changeVisibility(counterEl));
 
 // child age select element creation
-const childrenCountEl = document.querySelector('span.count_children');
+// child buttons
+const childMinusButtonEl = document.querySelector('button.child_minus');
+const childPlusButtonEl = document.querySelector('button.child_plus');
 // container for children age
 const childAgeEl = document.querySelector('div.child_age');
-// text children age
-const childAgeTextEl = document.querySelector('p.child_age_text');
+const childSelectsWrapperEl = document.querySelector('div.child_age_selects');
 // created age select element
-const selectEl = document.createElement('select');
-selectEl.classList.add('child_age_option_item');
+const creationSelectElements = () => {
+  const selectEl = document.createElement('select');
+  selectEl.classList.add('child_age_option_item');
 
-const makerAge = (fatherEl) => {
-  let optionEl = '';
-  let age = 1;
-  while (age < 18) {
-    optionEl = document.createElement('option');
-    optionEl.textContent = `${age} year old`;
-    age += 1;
-    fatherEl.appendChild(optionEl);
-  }
-  return fatherEl;
+  const makerAge = (fatherEl) => {
+    let optionEl = '';
+    let age = 1;
+    while (age < 18) {
+      optionEl = document.createElement('option');
+      optionEl.textContent = `${age} year old`;
+      age += 1;
+      fatherEl.appendChild(optionEl);
+    }
+    return fatherEl;
+  };
+
+  childSelectsWrapperEl.appendChild(makerAge(selectEl));
+// childAgeTextEl.after(makerAge(selectEl));
 };
 
-childAgeTextEl.after(makerAge(selectEl));
+const childIncrease = () => {
+  childAgeEl.classList.add('visible_element');
+  if (childSelectsWrapperEl.childNodes.length < 10) {
+    creationSelectElements();
+  }
+};
 
-const observer = new MutationObserver((mutationRecords) => {
-  const valueCount = mutationRecords[0].addedNodes[0].textContent;
-  if (valueCount > 0) {
-    childAgeEl.classList.add('visible_element');
-  } else {
+const childDecrease = () => {
+  if (childSelectsWrapperEl.childNodes.length > 0) {
+    childSelectsWrapperEl.removeChild(childSelectsWrapperEl.lastChild);
+  }
+  if (childSelectsWrapperEl.childNodes.length === 0) {
     childAgeEl.classList.remove('visible_element');
   }
-});
+};
 
-observer.observe(childrenCountEl, {
-  childList: true,
-  subtree: true,
-  characterDataOldValue: true,
-});
+childPlusButtonEl.addEventListener('click', childIncrease);
+childMinusButtonEl.addEventListener('click', childDecrease);
