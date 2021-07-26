@@ -786,7 +786,13 @@ class Teacher extends Person {
    this.studentIds = [arrayItem.students];
   }
   getStudents() {
-
+    const result = [];
+      users.forEach(element => {
+        if (element.teachers?.includes(this.id)) {
+          result.push(element);
+        }
+      });
+    return result;
   }
 }
 
@@ -804,7 +810,13 @@ class Student extends Person {
     this.teacherIds = [arrayItem.teachers];
   }
   getTeachers() {
-
+    const result = [];
+    users.forEach(element => {
+      if (element.students?.includes(this.id)) {
+        result.push(element);
+      }
+    });
+    return result;
   }
 }
 
@@ -813,3 +825,4 @@ console.log(student);
 
 console.log(student.getTeachers());
 // [Teacher {...}, Teacher {...}]
+
