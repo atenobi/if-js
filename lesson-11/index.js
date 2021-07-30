@@ -34,18 +34,24 @@ const decreaseValue = (event) => {
       personsValues.adults -= 1;
       formAdultsEl.textContent = personsValues.adults;
       countAdultsEl.textContent = personsValues.adults;
+    } else {
+      countAdultsEl.previousElementSibling.classList.remove('button_changed_style');
     }
   } else if (event.target.nextElementSibling.classList.contains('count_children')) {
     if (personsValues.children > 0) {
       personsValues.children -= 1;
       formChildrenEl.textContent = personsValues.children;
       countChildrenEl.textContent = personsValues.children;
+    } else {
+      countChildrenEl.previousElementSibling.classList.remove('button_changed_style');
     }
   } else if (event.target.nextElementSibling.classList.contains('count_rooms')) {
     if (personsValues.rooms > 0) {
       personsValues.rooms -= 1;
       formRoomsEl.textContent = personsValues.rooms;
       countRoomsEl.textContent = personsValues.rooms;
+    } else {
+      countRoomsEl.previousElementSibling.classList.remove('button_changed_style');
     }
   }
 };
@@ -57,18 +63,21 @@ const increaseValue = (event) => {
       personsValues.adults += 1;
       formAdultsEl.textContent = personsValues.adults;
       countAdultsEl.textContent = personsValues.adults;
+      countAdultsEl.previousElementSibling.classList.add('button_changed_style');
     }
   } else if (event.target.previousElementSibling.classList.contains('count_children')) {
     if (personsValues.children < 10) {
       personsValues.children += 1;
       formChildrenEl.textContent = personsValues.children;
       countChildrenEl.textContent = personsValues.children;
+      countChildrenEl.previousElementSibling.classList.add('button_changed_style');
     }
   } else if (event.target.previousElementSibling.classList.contains('count_rooms')) {
     if (personsValues.rooms < 30) {
       personsValues.rooms += 1;
       formRoomsEl.textContent = personsValues.rooms;
       countRoomsEl.textContent = personsValues.rooms;
+      countRoomsEl.previousElementSibling.classList.add('button_changed_style');
     }
   }
 };

@@ -381,14 +381,21 @@ html {
     justify-content: space-around;
 }
 
-.child_count_button_container {
+.count_button_container {
     width: 40%;
     display: flex;
     justify-content: space-around;
     align-items: baseline;
 }
 
-.minus, .plus {
+.button_default_style {
+    height: 30px;
+    width: 30px;
+    border: 1px solid var(--secondary-text);
+    color: var(--secondary-text);
+}
+
+.button_changed_style {
     height: 30px;
     width: 30px;
     border: 1px solid var(--primary);
