@@ -398,7 +398,7 @@
 //     country: 'Germany',
 //   },
 // ];
-//
+
 // const countries = hotels.reduce((acc, item) => { // hotels это массив => применяем .reduce
 //   const result = { ...acc }; // возвращаемая переменная создание обьекта через{спред оператор}
 //
@@ -445,7 +445,7 @@
 //   },
 //   b: 'b',
 // };
-//
+
 // // finded solution on https://overcoder.net/
 // function deepEqual(objA, objB) {
 //   const isObject = (x) => x && typeof x === 'object';
@@ -554,18 +554,18 @@
 // const textElLess9 = document.querySelectorAll('p.text_l_9');
 //
 // const colors = {
-// 	data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
-// 	[Symbol.iterator] () { return this; },
-// 	next () {
-// 		let last = this.data.length;
-// 			if (this.current === undefined || this.current === last) {
-// 				this.current = 0;
-// 			}
-// 			if (this.current < last) {
-// 				return { done: false, value: this.data[this.current++], }
-// 			}
-// 	}
-// }
+//   data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
+//   [Symbol.iterator]() { return this; },
+//   next() {
+//     const last = this.data.length;
+//     if (this.current === undefined || this.current === last) {
+//       this.current = 0;
+//     }
+//     if (this.current < last) {
+//       return { done: false, value: this.data[this.current++] };
+//     }
+//   },
+// };
 //
 // const changeStyle = (color) => (event) => {
 //   let eventColor = event.target.style.color;
@@ -577,18 +577,19 @@
 //   textElLess9[i].addEventListener('click', changeStyle({ ...colors }));
 // }
 
+// eslint-disable-next-line max-classes-per-file
 const roles = [
   {
     id: 'f7259abc-702a-4c26-99e4-ff596e7e3a4b',
-    name: 'admin'
+    name: 'admin',
   },
   {
     id: '180e3ce7-ac3b-43a8-9c56-569a8c4493c8',
-    name: 'teacher'
+    name: 'teacher',
   },
   {
     id: '550a3276-c51f-465c-971f-ab4e34e9f02a',
-    name: 'student'
+    name: 'student',
   },
 ];
 
@@ -708,16 +709,17 @@ const users = [
 // write migration for users array, role must be replaced to roleId from roles array.
 
 const apdateRole = () => {
-  let resultArr = [...users];
+  const resultArr = [...users];
   const isEqualStr = (x) => x.toString().toUpperCase();
 
-  users.forEach(userEl => {
-    roles.forEach(rolesEl => {
+  users.forEach((userEl) => {
+    roles.forEach((rolesEl) => {
       if (isEqualStr(userEl.role).includes(isEqualStr(rolesEl.name))) {
+        // eslint-disable-next-line no-param-reassign
         userEl.role = { id: rolesEl.id, name: rolesEl.name };
-        }
-      })
-    })
+      }
+    });
+  });
   return resultArr;
 };
 
@@ -775,8 +777,9 @@ class Person {
 }
 
 class Admin extends Person {
+  // eslint-disable-next-line no-useless-constructor
   constructor(arrayItem) {
-   super(arrayItem);
+    super(arrayItem);
   }
 }
 
@@ -788,15 +791,16 @@ console.log(admin);
 class Teacher extends Person {
   constructor(arrayItem) {
     super(arrayItem);
-   this.studentIds = [arrayItem.students];
+    this.studentIds = [arrayItem.students];
   }
+
   getStudents() {
     const result = [];
-      users.forEach(element => {
-        if (element.teachers?.includes(this.id)) {
-          result.push(element);
-        }
-      });
+    users.forEach((element) => {
+      if (element.teachers?.includes(this.id)) {
+        result.push(element);
+      }
+    });
     return result;
   }
 }
@@ -814,9 +818,10 @@ class Student extends Person {
     super(arrayItem);
     this.teacherIds = [arrayItem.teachers];
   }
+
   getTeachers() {
     const result = [];
-    users.forEach(element => {
+    users.forEach((element) => {
       if (element.students?.includes(this.id)) {
         result.push(element);
       }
@@ -830,4 +835,3 @@ console.log(student);
 
 console.log(student.getTeachers());
 // [Teacher {...}, Teacher {...}]
-

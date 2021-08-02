@@ -34,24 +34,39 @@ const decreaseValue = (event) => {
       personsValues.adults -= 1;
       formAdultsEl.textContent = personsValues.adults;
       countAdultsEl.textContent = personsValues.adults;
-    } else {
+    }
+    // button style
+    if (personsValues.adults === 0) {
       countAdultsEl.previousElementSibling.classList.remove('button_changed_style');
+    }
+    if (personsValues.adults < 30) {
+      countAdultsEl.nextElementSibling.classList.add('button_changed_style');
     }
   } else if (event.target.nextElementSibling.classList.contains('count_children')) {
     if (personsValues.children > 0) {
       personsValues.children -= 1;
       formChildrenEl.textContent = personsValues.children;
       countChildrenEl.textContent = personsValues.children;
-    } else {
+    }
+    // button style
+    if (personsValues.children === 0) {
       countChildrenEl.previousElementSibling.classList.remove('button_changed_style');
+    }
+    if (personsValues.children < 10) {
+      countChildrenEl.nextElementSibling.classList.add('button_changed_style');
     }
   } else if (event.target.nextElementSibling.classList.contains('count_rooms')) {
     if (personsValues.rooms > 0) {
       personsValues.rooms -= 1;
       formRoomsEl.textContent = personsValues.rooms;
       countRoomsEl.textContent = personsValues.rooms;
-    } else {
+    }
+    // button style
+    if (personsValues.rooms === 0) {
       countRoomsEl.previousElementSibling.classList.remove('button_changed_style');
+    }
+    if (personsValues.rooms < 30) {
+      countRoomsEl.nextElementSibling.classList.add('button_changed_style');
     }
   }
 };
@@ -63,21 +78,42 @@ const increaseValue = (event) => {
       personsValues.adults += 1;
       formAdultsEl.textContent = personsValues.adults;
       countAdultsEl.textContent = personsValues.adults;
+    }
+    // button style
+    if (personsValues.adults > 0) {
       countAdultsEl.previousElementSibling.classList.add('button_changed_style');
+    }
+    if (personsValues.adults === 30) {
+      countAdultsEl.nextElementSibling.classList.remove('button_changed_style');
+      countAdultsEl.nextElementSibling.classList.add('button_default_style');
     }
   } else if (event.target.previousElementSibling.classList.contains('count_children')) {
     if (personsValues.children < 10) {
       personsValues.children += 1;
       formChildrenEl.textContent = personsValues.children;
       countChildrenEl.textContent = personsValues.children;
+    }
+    // button style
+    if (personsValues.children > 0) {
       countChildrenEl.previousElementSibling.classList.add('button_changed_style');
+    }
+    if (personsValues.children === 10) {
+      countChildrenEl.nextElementSibling.classList.remove('button_changed_style');
+      countChildrenEl.nextElementSibling.classList.add('button_default_style');
     }
   } else if (event.target.previousElementSibling.classList.contains('count_rooms')) {
     if (personsValues.rooms < 30) {
       personsValues.rooms += 1;
       formRoomsEl.textContent = personsValues.rooms;
       countRoomsEl.textContent = personsValues.rooms;
+    }
+    // button style
+    if (personsValues.rooms > 0) {
       countRoomsEl.previousElementSibling.classList.add('button_changed_style');
+    }
+    if (personsValues.rooms === 30) {
+      countRoomsEl.nextElementSibling.classList.remove('button_changed_style');
+      countRoomsEl.nextElementSibling.classList.add('button_default_style');
     }
   }
 };
@@ -115,13 +151,12 @@ const creationSelectElements = () => {
   };
 
   childSelectsWrapperEl.appendChild(makerAge(selectEl));
-// childAgeTextEl.after(makerAge(selectEl));
 };
 
 const childIncrease = () => {
-  childAgeEl.classList.add('visible_element');
   if (childSelectsWrapperEl.childNodes.length < 10) {
     creationSelectElements();
+    childAgeEl.classList.add('visible_element');
   }
 };
 
