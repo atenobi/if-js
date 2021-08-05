@@ -1,0 +1,87 @@
+@import url("fonts.css");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /*border: 1px dashed grey;*/
+}
+
+.container_block {
+    width: 1440px;
+    height: 828px;
+    margin: 40px auto 40px;
+    background-color: #EAF0F9;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.container_title {
+    text-align: center;
+    margin: 120px auto 100px;
+    width: 365px;
+    height: 50px;
+}
+
+.title_text {
+    font-family: Roboto;
+    font-size: 40px;
+    line-height: 45px;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.container_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto 120px;
+    width: 1200px;
+    height: 440px;
+    position: relative;
+}
+
+.content_item_container {
+    width: 300px;
+    height: 250px;
+    margin: 8px;
+}
+
+.content_image {
+    width: 295px;
+    height: 295px;
+}
+
+.content_name_text {
+    font-family: Roboto;
+    padding-top: 24px;
+    font-style: normal;
+    font-size:  24px;
+    line-height: 28px;
+    color: #3077C6;
+}
+
+.content_location_text {
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 28px;
+    color: #BFBFBF;
+    padding-top: 24px;
+}
+
+.slide_button {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 140px;
+    right: -35px;
+    fill: #F3F3F4;
+    fill-opacity: 1;
+}
+
+.pushed_button {
+    fill-opacity: 0.7;
+}
+
