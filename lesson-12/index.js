@@ -11,16 +11,22 @@ function outputDataValues(arr) {
   });
 }
 
-fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
-  .then((response) => response.json())
-  .then((data) => {
-    outputDataValues(data.slice(0, 4));
-  })
-  .catch((err) => {
-    output.textContent = err;
-    return err;
-  });
+const storageData = sessionStorage;
 
+if (storageData.length === 0) {
+  fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
+    .then((response) => response.json())
+    .then((data) => {
+      outputDataValues(data.slice(0, 4));
+      storageData.setItem('hotels', JSON.stringify(data.slice(0, 4)));
+    })
+    .catch((err) => {
+      output.textContent = err;
+      return err;
+    });
+} else {
+  outputDataValues(JSON.parse(storageData.hotels));
+}
 // // changer button (unfinished)
 // function sliderListener() {
 //   slideButtonEl.classList.add('pushed_button');
