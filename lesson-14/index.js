@@ -7,7 +7,8 @@ const sendData = async (event) => {
     body: new FormData(formDataEl),
   };
   const result = await fetch('https://fe-student-api.herokuapp.com/api/file', fetchFile)
-    .then((response) => response.json());
+    .then((response) => response.json())
+    .catch(() => console.log(new Error('Sorry something wrong!')));
   console.log(result);
 };
 
