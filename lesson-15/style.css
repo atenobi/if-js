@@ -416,6 +416,7 @@ html {
 .child_age {
     display: flex;
     align-items: start;
+    justify-content: start;
 }
 
 .child_age_text {
@@ -427,20 +428,21 @@ html {
 
 .child_age_selects {
     background-color: var(--general-white);
-    width: 100px;
+    width: 40%;
     height: 100px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     border-radius: 8px;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
 }
 
 .child_age_option_item {
-    width: 100px;
+    width: 90%;
     height: 20px;
-    margin: 0 0 10px 10px;
+    margin: 5px auto;
     box-sizing: border-box;
+    border-radius: 4px;
     outline: var(--primary);
     border: 1px solid var(--primary);
 }

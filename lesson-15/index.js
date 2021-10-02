@@ -13,7 +13,9 @@ function bubbleSort(arr) {
     for (let j = 0, endJ = endI - i; j < endJ; j += 1) {
       if (arr[j].name > arr[j + 1].name) {
         const swap = arr[j];
+        // eslint-disable-next-line no-param-reassign
         arr[j] = arr[j + 1];
+        // eslint-disable-next-line no-param-reassign
         arr[j + 1] = swap;
       }
     }
@@ -77,9 +79,9 @@ destinationButtonEl.addEventListener('click', userSearch);
 // full form text
 const formPersonsTextEl = document.getElementById('js-form-persons-text');
 // number value of counter in form
-const formAdultsEl = document.getElementById('adults');
-const formChildrenEl = document.getElementById('children');
-const formRoomsEl = document.getElementById('rooms');
+const formAdultsEl = document.getElementById('form-adults-js');
+const formChildrenEl = document.getElementById('form-children-js');
+const formRoomsEl = document.getElementById('form-rooms-js');
 const counterEl = document.querySelector('div.persons_count');
 
 // number value of counter in form
@@ -209,10 +211,12 @@ const childPlusButtonEl = document.querySelector('button.child_plus');
 // container for children age
 const childAgeEl = document.querySelector('div.child_age');
 const childSelectsWrapperEl = document.querySelector('div.child_age_selects');
+
 // created age select element
 const creationSelectElements = () => {
   const selectEl = document.createElement('select');
   selectEl.classList.add('child_age_option_item');
+  selectEl.id = 'children-age-js';
 
   const makerAge = (fatherEl) => {
     let optionEl = '';
@@ -250,11 +254,19 @@ childMinusButtonEl.addEventListener('click', childDecrease);
 //
 
 const testButtonEl = document.getElementById('test-button');
+
 const formPersonsValue = new FormData(formPersonsTextEl);
 
-const show = (event) => {
-  event.preventDefault();
-  console.log(formPersonsValue.keys().next());
+const saveUserFormPoles = () => {
+  formPersonsValue.set('adults', `${personsValues.adults}`);
+  formPersonsValue.set('children', `${personsValues.children}`);
+  formPersonsValue.set('rooms', `${personsValues.rooms}`);
 };
 
-testButtonEl.addEventListener('click', show);
+const showResult = (event) => {
+  event.preventDefault();
+  saveUserFormPoles();
+  console.log(formPersonsValue.get('adults') + formPersonsValue.get('children') + formPersonsValue.get('rooms'));
+};
+
+testButtonEl.addEventListener('click', showResult);
