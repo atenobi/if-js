@@ -1,6 +1,6 @@
 @import url("fonts.css");
 
-:root{
+:root {
     --primary: #3077C6;
     --primary-dark: #10367C;
     --secondary: #F5BD41;
@@ -452,6 +452,11 @@ html {
     background-color: var(--primary);
     color: var(--general-white);
     margin-left: 4px;
+    transition: 0.5s;
+}
+
+.top_section__form_input--button:hover {
+    background-color: var(--primary-dark);
 }
 
 .top_section__shops{
