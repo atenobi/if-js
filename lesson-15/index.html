@@ -131,10 +131,9 @@
                 <div class="top_section__form--input_container">
                     <form id="js-form-persons-text" name="people-form" class="form_persons_container">
                         <span class="form_persons_text">
-                            <span id="form-adults-js" class="form_adults">0</span> Adults -
-                            <span id="form-children-js" class="form_children">0</span> Children -
-                            <span id="form-rooms-js" class="form_rooms">0</span> Rooms
-                            <button id="test-button" type="submit">show form data result</button>
+                            <span class="js-adults-counter">0</span> Adults -
+                            <span class="js-children-counter">0</span> Children -
+                            <span class="js-rooms-counter">0</span> Rooms
                         </span>
                     </form>
                     <div class="persons_count hidden_element">
@@ -142,23 +141,23 @@
                             <p class="counter_item_text">Adults</p>
                             <div class="count_button_container">
                                 <button class="minus button_default_style">-</button>
-                                    <span class="count_adults">0</span>
+                                    <span class="count_adults js-adults-counter">0</span>
                                 <button class="plus button_changed_style">+</button>
                             </div>
                         </div>
                         <div class="count_item">
                             <p class="counter_item_text">Children</p>
                             <div class="count_button_container">
-                                <button class="minus child_minus button_default_style">-</button>
-                                    <span class="count_children" id="test_child">0</span>
-                                <button class="plus child_plus button_changed_style">+</button>
+                                <button class="minus button_default_style">-</button>
+                                    <span class="count_children js-children-counter" id="test_child">0</span>
+                                <button class="plus button_changed_style">+</button>
                             </div>
                         </div>
                         <div class="count_item">
                             <p class="counter_item_text">Rooms</p>
                             <div class="count_button_container">
                                 <button class="minus button_default_style">-</button>
-                                    <span class="count_rooms">0</span>
+                                    <span class="count_rooms js-rooms-counter">0</span>
                                 <button class="plus button_changed_style">+</button>
                             </div>
                         </div>
@@ -166,6 +165,26 @@
                     <div class="child_age hidden_element">
                         <p class="child_age_text">What is the age of the child you’re travelling with?</p>
                         <div class="child_age_selects">
+                            <select name="child age" id="js-childAge" class="child_age_option_item js-age-array">
+                                <option value="1">1 year old</option>
+                                <option value="2">2 year old</option>
+                                <option value="3">3 year old</option>
+                                <option value="4">4 year old</option>
+                                <option value="5">5 year old</option>
+                                <option value="6">6 year old</option>
+                                <option value="7">7 year old</option>
+                                <option value="8">8 year old</option>
+                                <option value="9">9 year old</option>
+                                <option value="10">10 year old</option>
+                                <option value="11">11 year old</option>
+                                <option value="12">12 year old</option>
+                                <option value="13">13 year old</option>
+                                <option value="14">14 year old</option>
+                                <option value="15">15 year old</option>
+                                <option value="16">16 year old</option>
+                                <option value="17">17 year old</option>
+                                <option value="18">18 year old</option>
+                            </select>
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ const availableOutputContentEl = document.querySelector('div.js-output-hotels');
 const topSectionInputEl = document.querySelector('input#destination');
 const availableHotelsDivEl = document.querySelector('div.js-available-hotels');
 
-// bubble sort function
+// bubble sort function -> module
 function bubbleSort(arr) {
   for (let i = 0, endI = arr.length - 1; i < endI; i += 1) {
     for (let j = 0, endJ = endI - i; j < endJ; j += 1) {
@@ -23,7 +23,7 @@ function bubbleSort(arr) {
   return arr;
 }
 
-// visualization in page
+// visualization in page result block
 function outputDataValues(arr, output) {
   arr.forEach((element) => {
     const domEl = document.createElement('ul');
@@ -35,7 +35,7 @@ function outputDataValues(arr, output) {
   });
 }
 
-// server and session storage
+// session storage
 const storageData = sessionStorage;
 
 if (storageData.length === 0) {
@@ -53,7 +53,7 @@ if (storageData.length === 0) {
   outputDataValues(JSON.parse(storageData.hotels).slice(0, 4), outputDivEl);
 }
 
-// output result function
+// searching function
 const userSearch = (event) => {
   event.preventDefault();
   const userSearchString = topSectionInputEl.value.toLowerCase();
@@ -78,22 +78,26 @@ destinationButtonEl.addEventListener('click', userSearch);
 
 // full form text
 const formPersonsTextEl = document.getElementById('js-form-persons-text');
-// number value of counter in form
-const formAdultsEl = document.getElementById('form-adults-js');
-const formChildrenEl = document.getElementById('form-children-js');
-const formRoomsEl = document.getElementById('form-rooms-js');
-const counterEl = document.querySelector('div.persons_count');
 
 // number value of counter in form
-const countAdultsEl = document.querySelector('span.count_adults');
-const countChildrenEl = document.querySelector('span.count_children');
-const countRoomsEl = document.querySelector('span.count_rooms');
+const formAdultsEl = document.querySelectorAll('span.js-adults-counter');
+const formChildrenEl = document.querySelectorAll('span.js-children-counter');
+const formRoomsEl = document.querySelectorAll('span.js-rooms-counter');
+const counterEl = document.querySelector('div.persons_count');
 
 // container for values
 const personsValues = {
   adults: 0,
   children: 0,
+  childrenAge: [],
   rooms: 0,
+};
+
+// assignment value from object to text elements on form and counter
+const assignmentFunc = () => {
+  formAdultsEl.forEach((el) => el.textContent = personsValues.adults);
+  formChildrenEl.forEach((el) => el.textContent = personsValues.children);
+  formRoomsEl.forEach((el) => el.textContent = personsValues.rooms);
 };
 
 // counter +/- buttons
@@ -105,134 +109,23 @@ const changeVisibility = (el) => {
   el.classList.toggle('visible_element');
 };
 
-// function for (-)
-const decreaseValue = (event) => {
-  if (event.target.nextElementSibling.classList.contains('count_adults')) {
-    if (personsValues.adults > 0) {
-      personsValues.adults -= 1;
-      formAdultsEl.textContent = personsValues.adults;
-      countAdultsEl.textContent = personsValues.adults;
-    }
-    // button style
-    if (personsValues.adults === 0) {
-      countAdultsEl.previousElementSibling.classList.remove('button_changed_style');
-    }
-    if (personsValues.adults < 30) {
-      countAdultsEl.nextElementSibling.classList.add('button_changed_style');
-    }
-  } else if (event.target.nextElementSibling.classList.contains('count_children')) {
-    if (personsValues.children > 0) {
-      personsValues.children -= 1;
-      formChildrenEl.textContent = personsValues.children;
-      countChildrenEl.textContent = personsValues.children;
-    }
-    // button style
-    if (personsValues.children === 0) {
-      countChildrenEl.previousElementSibling.classList.remove('button_changed_style');
-    }
-    if (personsValues.children < 10) {
-      countChildrenEl.nextElementSibling.classList.add('button_changed_style');
-    }
-  } else if (event.target.nextElementSibling.classList.contains('count_rooms')) {
-    if (personsValues.rooms > 0) {
-      personsValues.rooms -= 1;
-      formRoomsEl.textContent = personsValues.rooms;
-      countRoomsEl.textContent = personsValues.rooms;
-    }
-    // button style
-    if (personsValues.rooms === 0) {
-      countRoomsEl.previousElementSibling.classList.remove('button_changed_style');
-    }
-    if (personsValues.rooms < 30) {
-      countRoomsEl.nextElementSibling.classList.add('button_changed_style');
-    }
-  }
-};
-
-// function for (+)
-const increaseValue = (event) => {
-  if (event.target.previousElementSibling.classList.contains('count_adults')) {
-    if (personsValues.adults < 30) {
-      personsValues.adults += 1;
-      formAdultsEl.textContent = personsValues.adults;
-      countAdultsEl.textContent = personsValues.adults;
-    }
-    // button style
-    if (personsValues.adults > 0) {
-      countAdultsEl.previousElementSibling.classList.add('button_changed_style');
-    }
-    if (personsValues.adults === 30) {
-      countAdultsEl.nextElementSibling.classList.remove('button_changed_style');
-      countAdultsEl.nextElementSibling.classList.add('button_default_style');
-    }
-  } else if (event.target.previousElementSibling.classList.contains('count_children')) {
-    if (personsValues.children < 10) {
-      personsValues.children += 1;
-      formChildrenEl.textContent = personsValues.children;
-      countChildrenEl.textContent = personsValues.children;
-    }
-    // button style
-    if (personsValues.children > 0) {
-      countChildrenEl.previousElementSibling.classList.add('button_changed_style');
-    }
-    if (personsValues.children === 10) {
-      countChildrenEl.nextElementSibling.classList.remove('button_changed_style');
-      countChildrenEl.nextElementSibling.classList.add('button_default_style');
-    }
-  } else if (event.target.previousElementSibling.classList.contains('count_rooms')) {
-    if (personsValues.rooms < 30) {
-      personsValues.rooms += 1;
-      formRoomsEl.textContent = personsValues.rooms;
-      countRoomsEl.textContent = personsValues.rooms;
-    }
-    // button style
-    if (personsValues.rooms > 0) {
-      countRoomsEl.previousElementSibling.classList.add('button_changed_style');
-    }
-    if (personsValues.rooms === 30) {
-      countRoomsEl.nextElementSibling.classList.remove('button_changed_style');
-      countRoomsEl.nextElementSibling.classList.add('button_default_style');
-    }
-  }
-};
-
-// event listeners
-minesButtonEl.forEach((el) => el.addEventListener('click', decreaseValue));
-plusButtonEl.forEach((el) => el.addEventListener('click', increaseValue));
-formPersonsTextEl.addEventListener('click', () => {
-  formPersonsTextEl.classList.toggle('form_persons_clicked_container');
-});
-formPersonsTextEl.addEventListener('click', () => changeVisibility(counterEl));
-
-// child age select element creation
-// child buttons
-const childMinusButtonEl = document.querySelector('button.child_minus');
-const childPlusButtonEl = document.querySelector('button.child_plus');
-// container for children age
+// created age select element
 const childAgeEl = document.querySelector('div.child_age');
 const childSelectsWrapperEl = document.querySelector('div.child_age_selects');
+const childSelectOriginEl = document.getElementById('js-childAge');
+// const childSelectAllEl = document.querySelectorAll('select.js-age-array');
+// childSelectAllEl.forEach((el) => personsValues.childrenAge.push(el.value));
 
-// created age select element
+// making select clones
 const creationSelectElements = () => {
-  const selectEl = document.createElement('select');
-  selectEl.classList.add('child_age_option_item');
-  selectEl.id = 'children-age-js';
-
-  const makerAge = (fatherEl) => {
-    let optionEl = '';
-    let age = 1;
-    while (age < 18) {
-      optionEl = document.createElement('option');
-      optionEl.textContent = `${age} year old`;
-      age += 1;
-      fatherEl.appendChild(optionEl);
-    }
-    return fatherEl;
-  };
-
-  childSelectsWrapperEl.appendChild(makerAge(selectEl));
+  if (personsValues.children > 1) {
+    const clone = childSelectOriginEl.cloneNode(true);
+    clone.classList.add('js-age-array');
+    childSelectsWrapperEl.appendChild(clone);
+  }
 };
 
+// children age change functions
 const childIncrease = () => {
   if (childSelectsWrapperEl.childNodes.length < 10) {
     creationSelectElements();
@@ -249,11 +142,51 @@ const childDecrease = () => {
   }
 };
 
-childPlusButtonEl.addEventListener('click', childIncrease);
-childMinusButtonEl.addEventListener('click', childDecrease);
-//
+// function for (-)
+const decreaseValue = (event) => {
+  if (event.target.nextElementSibling.classList.contains('count_adults')) {
+    if (personsValues.adults > 0) {
+      personsValues.adults -= 1;
+    }
+  } else if (event.target.nextElementSibling.classList.contains('count_children')) {
+    if (personsValues.children > 0) {
+      personsValues.children -= 1;
+      childDecrease();
+    }
+  } else if (event.target.nextElementSibling.classList.contains('count_rooms')) {
+    if (personsValues.rooms > 0) {
+      personsValues.rooms -= 1;
+    }
+  }
+  assignmentFunc();
+};
 
-const testButtonEl = document.getElementById('test-button');
+// function for (+)
+const increaseValue = (event) => {
+  if (event.target.previousElementSibling.classList.contains('count_adults')) {
+    if (personsValues.adults < 30) {
+      personsValues.adults += 1;
+    }
+  } else if (event.target.previousElementSibling.classList.contains('count_children')) {
+    if (personsValues.children < 10) {
+      personsValues.children += 1;
+      childIncrease();
+    }
+  } else if (event.target.previousElementSibling.classList.contains('count_rooms')) {
+    if (personsValues.rooms < 30) {
+      personsValues.rooms += 1;
+    }
+  }
+  assignmentFunc();
+};
+
+// event listeners
+minesButtonEl.forEach((el) => el.addEventListener('click', decreaseValue));
+plusButtonEl.forEach((el) => el.addEventListener('click', increaseValue));
+formPersonsTextEl.addEventListener('click', () => {
+  formPersonsTextEl.classList.toggle('form_persons_clicked_container');
+});
+formPersonsTextEl.addEventListener('click', () => changeVisibility(counterEl));
 
 const formPersonsValue = new FormData(formPersonsTextEl);
 
@@ -263,10 +196,20 @@ const saveUserFormPoles = () => {
   formPersonsValue.set('rooms', `${personsValues.rooms}`);
 };
 
+// final compile of url and show it in console
 const showResult = (event) => {
   event.preventDefault();
   saveUserFormPoles();
-  console.log(formPersonsValue.get('adults') + formPersonsValue.get('children') + formPersonsValue.get('rooms'));
+  const search = `?search=${topSectionInputEl.value}`;
+  const url = new URL(hotelsApi).toString();
+  const adults = `&adults=${formPersonsValue.get('adults')}`;
+  const children = `&children=${formPersonsValue.get('children')}`;
+  const rooms = `&rooms=${formPersonsValue.get('rooms')}`;
+  const resultStr = `${url}${search}${adults}${children}${rooms}`;
+  console.log(resultStr);
+
+  return resultStr;
+  // console.log(personsValues.childrenAge);
 };
 
-testButtonEl.addEventListener('click', showResult);
+destinationButtonEl.addEventListener('click', showResult);
