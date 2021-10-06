@@ -1,5 +1,15 @@
+// import { bubbleSort } from './modules/bubbleSort';
+// import { changeVisibility } from './modules/changeVisibility';
+// import { childIncrease, childDecrease } from './modules/children(+-)';
+// import { decreaseValue } from './modules/minusButtonFunction';
+// import { increaseValue } from './modules/plusButtonFunction';
+// import { creationSelectElements } from './modules/selectCloneCreation';
+// import { saveParamsToUrl } from './modules/URLmackingFunction';
+// import { outputDataValues } from './modules/visualisationOnPageFunction';
+
 const baseUrl = 'https://fe-student-api.herokuapp.com/api/';
-const hotelsApi = `${baseUrl}hotels`;
+const hotelsApi = `${baseUrl}hotels?`;
+let myResultUrl = '';
 
 // page elements
 const outputDivEl = document.querySelector('div.js-homes-guests-content');
@@ -8,7 +18,7 @@ const availableOutputContentEl = document.querySelector('div.js-output-hotels');
 const topSectionInputEl = document.querySelector('input#destination');
 const availableHotelsDivEl = document.querySelector('div.js-available-hotels');
 
-// bubble sort function -> module
+// bubble sort function -> module +
 function bubbleSort(arr) {
   for (let i = 0, endI = arr.length - 1; i < endI; i += 1) {
     for (let j = 0, endJ = endI - i; j < endJ; j += 1) {
@@ -23,59 +33,6 @@ function bubbleSort(arr) {
   }
   return arr;
 }
-
-// visualization in page result block
-function outputDataValues(arr, output) {
-  availableOutputContentEl.innerHTML = '';
-  arr.forEach((element) => {
-    const domEl = document.createElement('ul');
-    domEl.classList.add('content_item_container');
-    domEl.innerHTML = `<img src = '${element.imageUrl}' class="content_image" alt="photo">
-        <p class="content_name_text">${element.name}</p>
-        <p class="content_location_text">${element.city}, ${element.country}</p>`;
-    output.append(domEl);
-  });
-}
-
-// session storage
-const storageData = sessionStorage;
-
-if (storageData.length === 0) {
-  fetch(hotelsApi)
-    .then((response) => response.json()
-      .then((data) => {
-        outputDataValues(data.slice(0, 4), outputDivEl);
-        storageData.setItem('hotels', JSON.stringify(data));
-      })
-      .catch((err) => {
-        outputDivEl.textContent = err.message;
-        return err.message;
-      }));
-} else {
-  outputDataValues(JSON.parse(storageData.hotels).slice(0, 4), outputDivEl);
-}
-
-// searching function old version not correct searching
-const userSearch = (event) => {
-  event.preventDefault();
-  const userSearchString = topSectionInputEl.value.toLowerCase();
-  const savedDataHotels = bubbleSort(JSON.parse(storageData.hotels));
-  const findedResult = [];
-
-  availableHotelsDivEl.classList.add('visible_element');
-
-  for (let i = 0; i < savedDataHotels.length; i += 1) {
-    if (savedDataHotels[i].name.toLowerCase().includes(userSearchString)
-      || savedDataHotels[i].country.toLowerCase().includes(userSearchString)
-      || savedDataHotels[i].city.toLowerCase().includes(userSearchString)
-    ) {
-      findedResult.push(savedDataHotels[i]);
-    }
-  }
-  outputDataValues(findedResult.slice(0, 4), availableOutputContentEl);
-};
-
-destinationButtonEl.addEventListener('click', userSearch);
 
 // full form text
 const formPersonsTextEl = document.getElementById('js-form-persons-text');
@@ -120,7 +77,7 @@ const assignmentFunc = () => {
 const minesButtonEl = document.querySelectorAll('button.minus');
 const plusButtonEl = document.querySelectorAll('button.plus');
 
-// function for visibility change
+// function for visibility change -> module +
 const changeVisibility = (el) => {
   el.classList.toggle('visible_element');
 };
@@ -129,15 +86,16 @@ const changeVisibility = (el) => {
 const childAgeEl = document.querySelector('div.child_age');
 const childSelectsWrapperEl = document.querySelector('div.child_age_selects');
 const childSelectOriginEl = document.getElementById('js-childAge');
-const childSelectAllEl = document.querySelectorAll('select.js-age-array');
+// const childSelectAllEl = document.querySelectorAll('select.js-age-array');
 
-const getAge = () => {
-  childSelectAllEl.forEach((el) => personsValues.children.childrenAge.push(el.value));
-};
+// unfinished age finding function
+// const getAge = () => {
+//   childSelectAllEl.forEach((el) => personsValues.children.childrenAge.push(el.value));
+// };
+//
+// getAge();
 
-getAge();
-
-// making select clones
+// making select clones -> module +
 const creationSelectElements = () => {
   if (personsValues.children.value > 1) {
     const clone = childSelectOriginEl.cloneNode(true);
@@ -146,7 +104,7 @@ const creationSelectElements = () => {
   }
 };
 
-// children age change functions
+// children age change functions -> module +
 const childIncrease = () => {
   if (personsValues.children.value < personsValues.children.max) {
     creationSelectElements();
@@ -163,7 +121,7 @@ const childDecrease = () => {
   }
 };
 
-// function for (-)
+// function for (-) -> module +
 const decreaseValue = (event) => {
   if (event.target.nextElementSibling.classList.contains('count_adults')) {
     if (personsValues.adults.value > personsValues.adults.min) {
@@ -182,7 +140,7 @@ const decreaseValue = (event) => {
   assignmentFunc();
 };
 
-// function for (+)
+// function for (+) -> module +
 const increaseValue = (event) => {
   if (event.target.previousElementSibling.classList.contains('count_adults')) {
     if (personsValues.adults.value < personsValues.adults.max) {
@@ -205,33 +163,86 @@ const increaseValue = (event) => {
 minesButtonEl.forEach((el) => el.addEventListener('click', decreaseValue));
 plusButtonEl.forEach((el) => el.addEventListener('click', increaseValue));
 
+// change form style on click
 formPersonsTextEl.addEventListener('click', () => {
   formPersonsTextEl.classList.toggle('form_persons_clicked_container');
 });
+
 formPersonsTextEl.addEventListener('click', () => changeVisibility(counterEl));
 
-// make form data
-const formPersonsValue = new FormData();
+// final compile of url and show it in console -> module +
+const saveParamsToUrl = () => {
+  const URlUserParams = new URLSearchParams();
 
-const saveUserFormPoles = () => {
-  formPersonsValue.set('adults', `${personsValues.adults.value}`);
-  formPersonsValue.set('children', `${personsValues.children.value}`);
-  formPersonsValue.set('rooms', `${personsValues.rooms.value}`);
+  // save URl params from Object to url
+  URlUserParams.append('search', topSectionInputEl.value);
+  URlUserParams.append('adults', personsValues.adults.value);
+  URlUserParams.append('children', personsValues.children.value);
+  URlUserParams.append('rooms', personsValues.rooms.value);
+
+  myResultUrl = hotelsApi + URlUserParams.toString();
+  // console.log(myResultUrl);
+  // get one value from url -> URlUserParams.get('adults');
 };
 
-// final compile of url and show it in console
-const showResult = async (event) => {
+// visualization in page result block function -> module +
+async function outputDataValues(arr, output) {
+  await saveParamsToUrl();
+  // eslint-disable-next-line no-param-reassign
+  output.innerHTML = '';
+  arr.forEach((element) => {
+    const domEl = document.createElement('ul');
+    domEl.classList.add('content_item_container');
+    domEl.innerHTML = `<img src = '${element.imageUrl}' class="content_image" alt="photo">
+        <p class="content_name_text">${element.name}</p>
+        <p class="content_location_text">${element.city}, ${element.country}</p>`;
+    output.append(domEl);
+  });
+}
+
+// session storage / not function for block `Homes guests loves`
+const storageData = sessionStorage;
+
+if (storageData.length === 0) {
+  // ->fetch place
+  fetch(hotelsApi)
+    .then((response) => response.json()
+      .then((data) => {
+        outputDataValues(bubbleSort(data).slice(0, 4), outputDivEl);
+        storageData.setItem('hotels', JSON.stringify(data));
+      })
+      .catch((err) => {
+        outputDivEl.classList.add('text_lg');
+        outputDivEl.textContent = err.message;
+        return err.message;
+      }));
+} else {
+  outputDataValues(JSON.parse(storageData.hotels).slice(0, 4), outputDivEl);
+}
+
+// finish filter use function
+const userConfirmClick = async (event) => {
   event.preventDefault();
-  await saveUserFormPoles();
-  // need clean up
-  const search = `?search=${topSectionInputEl.value}`;
-  const adults = `&adults=${formPersonsValue.get('adults')}`;
-  const children = `&children=${formPersonsValue.get('children')}`;
-  const rooms = `&rooms=${formPersonsValue.get('rooms')}`;
-
-  const resultStr = `${hotelsApi}${search}${adults}${children}${rooms}`;
-  console.log(resultStr);
-  // console.log(personsValues.childrenAge);
+  await saveParamsToUrl();
+  fetch(myResultUrl)
+    .then((response) => response.json()
+      .then((data) => {
+        if (data.length > 0) {
+          outputDataValues(bubbleSort(data).slice(0, 4), availableOutputContentEl);
+        } else {
+          availableOutputContentEl.classList.add('text_message_special');
+          availableOutputContentEl.textContent = 'Sorry, nothing was found.'
+            + ' Please check the information you entered.'
+            + ' Or you too young to travel?';
+        }
+      })
+      .catch((err) => {
+        availableOutputContentEl.classList.add('text_message_special');
+        availableOutputContentEl.textContent = 'Ups, something goes wrong.Please check yours info.';
+        // console.log(err.message);
+        return err.message;
+      }));
+  availableHotelsDivEl.classList.add('visible_element');
 };
 
-destinationButtonEl.addEventListener('click', showResult);
+destinationButtonEl.addEventListener('click', userConfirmClick);

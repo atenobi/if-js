@@ -115,6 +115,12 @@ html {
     line-height: 14rem;
 }
 
+.text_message_special {
+    font-size: 12rem;
+    line-height: 14rem;
+    color: #a10b0b;
+}
+
 .text_md {
     font-size: 10rem;
     line-height: 11rem;
