@@ -444,6 +444,7 @@ html {
 }
 
 .child_age_option_item {
+    z-index: 1;
     width: 90%;
     height: 20px;
     margin: 5px auto;

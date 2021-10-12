@@ -1,11 +1,13 @@
-// import { bubbleSort } from './modules/bubbleSort';
-// import { changeVisibility } from './modules/changeVisibility';
-// import { childIncrease, childDecrease } from './modules/children(+-)';
-// import { decreaseValue } from './modules/minusButtonFunction';
-// import { increaseValue } from './modules/plusButtonFunction';
-// import { creationSelectElements } from './modules/selectCloneCreation';
-// import { saveParamsToUrl } from './modules/URLmackingFunction';
-// import { outputDataValues } from './modules/visualisationOnPageFunction';
+/*
+ import { bubbleSort } from './modules/bubbleSort';
+ import { changeVisibility } from './modules/changeVisibility';
+ import { childIncrease, childDecrease } from './modules/children(+-)';
+ import { decreaseValue } from './modules/minusButtonFunction';
+ import { increaseValue } from './modules/plusButtonFunction';
+ import { creationSelectElements } from './modules/selectCloneCreation';
+ import { saveParamsToUrl } from './modules/URLmackingFunction';
+ import { outputDataValues } from './modules/visualisationOnPageFunction';
+*/
 
 const baseUrl = 'https://fe-student-api.herokuapp.com/api/';
 const hotelsApi = `${baseUrl}hotels?`;
@@ -85,23 +87,32 @@ const changeVisibility = (el) => {
 // created age select element
 const childAgeEl = document.querySelector('div.child_age');
 const childSelectsWrapperEl = document.querySelector('div.child_age_selects');
-const childSelectOriginEl = document.getElementById('js-childAge');
-// const childSelectAllEl = document.querySelectorAll('select.js-age-array');
-
-// unfinished age finding function
-// const getAge = () => {
-//   childSelectAllEl.forEach((el) => personsValues.children.childrenAge.push(el.value));
-// };
-//
-// getAge();
 
 // making select clones -> module +
 const creationSelectElements = () => {
-  if (personsValues.children.value > 1) {
-    const clone = childSelectOriginEl.cloneNode(true);
-    clone.classList.add('js-age-array');
-    childSelectsWrapperEl.appendChild(clone);
-  }
+  const childSelectOriginEl = document.createElement('select');
+  childSelectOriginEl.id = 'js-childAge';
+  childSelectOriginEl.classList.add('child_age_option_item');
+  childSelectOriginEl.classList.add('js-age-array');
+  let counter = 1;
+
+  do {
+    const optionSelect = document.createElement('option');
+    optionSelect.value += counter;
+    optionSelect.textContent = `${counter} year old`;
+    childSelectOriginEl.appendChild(optionSelect);
+    counter += 1;
+  } while (counter < 19);
+  childSelectsWrapperEl.appendChild(childSelectOriginEl);
+};
+
+// finished age finding function
+const getAge = () => {
+  const childSelectAllEl = document.querySelectorAll('select.js-age-array');
+  personsValues.children.childrenAge = [];
+  childSelectAllEl.forEach((el) => {
+    personsValues.children.childrenAge.push(el.options[el.selectedIndex].value);
+  });
 };
 
 // children age change functions -> module +
@@ -172,17 +183,17 @@ formPersonsTextEl.addEventListener('click', () => changeVisibility(counterEl));
 
 // final compile of url and show it in console -> module +
 const saveParamsToUrl = () => {
+  getAge();
   const URlUserParams = new URLSearchParams();
 
   // save URl params from Object to url
   URlUserParams.append('search', topSectionInputEl.value);
   URlUserParams.append('adults', personsValues.adults.value);
-  URlUserParams.append('children', personsValues.children.value);
+  URlUserParams.append('children', personsValues.children.childrenAge.join(','));
   URlUserParams.append('rooms', personsValues.rooms.value);
 
   myResultUrl = hotelsApi + URlUserParams.toString();
   // console.log(myResultUrl);
-  // get one value from url -> URlUserParams.get('adults');
 };
 
 // visualization in page result block function -> module +
