@@ -410,7 +410,7 @@
 //     result[item.country].push(item.city); // пушим все города
 //   }
 //
-//   return result; // возвращаем массив
+//   return result; // возвращаем обьект
 // }, {});
 //
 // console.log(countries);
@@ -467,7 +467,7 @@
 //   }
 //   return result;
 // }
-//
+
 // console.log(deepEqual(obj1, obj2)); // true
 // console.log(deepEqual(obj1, obj3)); // false
 // console.log(deepEqual(obj2, obj3)); // false
@@ -566,7 +566,7 @@
 //     }
 //   },
 // };
-//
+
 // const changeStyle = (color) => (event) => {
 //   let eventColor = event.target.style.color;
 //   eventColor = color.next().value;
